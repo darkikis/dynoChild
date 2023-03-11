@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
 
     //private EnemyController enemyActive;
 
-    //private int counterAnimationAttack = 0;
+    //pprivate int counterAnimationAttack = 0;
     void Start()
     {
         
@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
         playerAnimator.SetFloat("direction",
             Input.GetAxis("Horizontal"));
 
-        if (Input.GetKeyDown(KeyCode.Space) && (animatorState.IsName("Locomotion") || animatorState.IsName("IdleShort"))) {
+        if (Input.GetKeyDown(KeyCode.Space) && (animatorState.IsName("LocomotionRun") || animatorState.IsName("Idle"))) {
             rb.AddForce(Vector3.up * jumpAmount, ForceMode.Impulse);
             playerAnimator.SetTrigger("jump");
             //AudioManager.instance.PlaySFX(SFXType.JUMP);

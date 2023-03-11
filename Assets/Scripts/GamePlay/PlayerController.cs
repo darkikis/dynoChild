@@ -19,7 +19,9 @@ public class PlayerController : MonoBehaviour
 
     public Rigidbody rb;
 
-    public float jumpAmount = 7f;
+    public float jumpAmount;
+
+    private bool canPunch = true;
 
     //private EnemyController enemyActive;
 
@@ -44,8 +46,9 @@ public class PlayerController : MonoBehaviour
             Input.GetAxis("Horizontal"));
 
         if (Input.GetKeyDown(KeyCode.Space) && (animatorState.IsName("LocomotionRun") || animatorState.IsName("Idle"))) {
-            rb.AddForce(Vector3.up * jumpAmount, ForceMode.Impulse);
+            
             playerAnimator.SetTrigger("jump");
+            rb.AddForce(Vector3.up * jumpAmount, ForceMode.Impulse);
             //AudioManager.instance.PlaySFX(SFXType.JUMP);
         }
 
@@ -61,10 +64,23 @@ public class PlayerController : MonoBehaviour
             playerAnimator.SetTrigger("grab");
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0)){
+        if (canPunch && Input.GetKeyDown(KeyCode.Mouse0))
+        {
             playerAnimator.SetTrigger("punch");
             //counterAnimationAttack = 0;
         }
+        else if(!canPunch && Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            playerAnimator.SetTrigger("fire");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            canPunch = !(canPunch);
+            //playerAnimator.SetTrigger("punch");
+            //counterAnimationAttack = 0;
+        }
+
     }
 
 

@@ -42,7 +42,7 @@ public class UIManager : MonoBehaviour
     {
         itemsText.text = playerData.itmes.ToString();
 
-        lifesText.text = playerData.lifes.ToString();
+        lifesText.text = "x" + playerData.lifes.ToString();
         currentLevel.text = "W-" + playerData.currentLevel;
     }
 }

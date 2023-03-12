@@ -23,6 +23,10 @@ public class PlayerController : MonoBehaviour
 
     private bool canPunch = true;
 
+    public GameEvent dieEvent;
+
+    public Transform respawn;
+
     //private EnemyController enemyActive;
 
     //pprivate int counterAnimationAttack = 0;
@@ -30,10 +34,12 @@ public class PlayerController : MonoBehaviour
     {
         
         playerAnimator = GetComponent<Animator>();
+       
         //enemyActive = null;
 
 
-    }    
+    }
+    
     void Update()
     {
         animatorState = playerAnimator.GetCurrentAnimatorStateInfo(0);
@@ -79,6 +85,14 @@ public class PlayerController : MonoBehaviour
             canPunch = !(canPunch);
             //playerAnimator.SetTrigger("punch");
             //counterAnimationAttack = 0;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+
+            playerAnimator.SetTrigger("dive");
+            rb.AddForce(Vector3.up * jumpAmount, ForceMode.Impulse);
+            //AudioManager.instance.PlaySFX(SFXType.JUMP);
         }
 
     }
@@ -179,6 +193,12 @@ public class PlayerController : MonoBehaviour
             }
             */
         }
+
+        if (other.transform.CompareTag("Fall"))
+        {
+            dieEvent.Raise();
+            this.transform.position = respawn.position;
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -194,4 +214,6 @@ public class PlayerController : MonoBehaviour
 
         }
     }
+
+    
 }

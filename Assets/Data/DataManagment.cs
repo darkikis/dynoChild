@@ -35,4 +35,9 @@ public class DataManagment : MonoBehaviour
         playerData.currentLevel = index;
         drawUIEvent.Raise();
     }
+
+    public void Die() {
+        playerData.lifes--;
+        drawUIEvent.Raise();
+    }
 }

@@ -22,6 +22,10 @@ public class GameManager : MonoBehaviour
             case GameState.NEW_GAME:
                 OnStartEvent.Raise();
                 break;
+
+            case GameState.BATTLE:
+                OnStartEvent.Raise();
+                break;
         }
     }
 
@@ -61,5 +65,6 @@ public enum GameState
     ON_START,
     PLAYING,
     GAME_OVER,
-    PAUSE
+    PAUSE,
+    BATTLE
 }

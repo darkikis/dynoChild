@@ -8,4 +8,5 @@ public class PlayerData : ScriptableObject
     public int lifes;
     public int itmes;
     public int currentLevel;
+    public int lifePoints;
 }

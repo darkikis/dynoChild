@@ -5,14 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class LoaderSceneManager : MonoBehaviour
 {
-    public AudioManager audioManager;
+    public GameEvent stopMusicEvent;
     public void LoadLevel11Scene()
     {
         Debug.Log("LoadLevel11Scene");
         // Only specifying the sceneName or sceneBuildIndex will load the Scene with the Single mode
         
             SceneManager.LoadScene("Level1-1", LoadSceneMode.Single);
-        audioManager.StopMusic();
+            stopMusicEvent.Raise();
             
         
         

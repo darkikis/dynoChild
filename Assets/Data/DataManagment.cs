@@ -13,6 +13,7 @@ public class DataManagment : MonoBehaviour
         playerData.lifes = 5;
         playerData.itmes = 0;
         playerData.currentLevel = 1;
+        playerData.lifePoints = 100;
 
         drawUIEvent.Raise();
 
@@ -20,7 +21,7 @@ public class DataManagment : MonoBehaviour
 
     public void RecieveDamage()
     {
-        playerData.lifes--;
+        playerData.lifePoints -= 5;
         drawUIEvent.Raise();
     }
 
@@ -37,7 +38,13 @@ public class DataManagment : MonoBehaviour
     }
 
     public void Die() {
+        playerData.lifePoints = 0;
         playerData.lifes--;
+        drawUIEvent.Raise();
+    }
+
+    public void RestoreLifePoints() { 
+        playerData.lifePoints = 100;
         drawUIEvent.Raise();
     }
 }

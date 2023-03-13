@@ -61,10 +61,4 @@ public class AudioManager : MonoBehaviour
     public void StopMusic() {
         audioSource.Stop();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

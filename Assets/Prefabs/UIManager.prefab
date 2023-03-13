@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &977277502508197446
+--- !u!1 &5208005027854767732
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,11 +8,11 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 977277502508197449}
-  - component: {fileID: 977277502508197448}
-  - component: {fileID: 977277502508197453}
-  - component: {fileID: 977277502508197450}
-  - component: {fileID: 977277502508197451}
+  - component: {fileID: 5208005027854767739}
+  - component: {fileID: 5208005027854767738}
+  - component: {fileID: 5208005027854767743}
+  - component: {fileID: 5208005027854767736}
+  - component: {fileID: 5208005027854767737}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -20,13 +20,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &977277502508197449
+--- !u!4 &5208005027854767739
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 977277502508197446}
+  m_GameObject: {fileID: 5208005027854767732}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -35,13 +35,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &977277502508197448
+--- !u!114 &5208005027854767738
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 977277502508197446}
+  m_GameObject: {fileID: 5208005027854767732}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 589d65b63da3c08489724585cb4dc6b4, type: 3}
@@ -52,14 +52,15 @@ MonoBehaviour:
   itemsText: {fileID: 0}
   lifesText: {fileID: 0}
   currentLevel: {fileID: 0}
+  sliderLifePoints: {fileID: 0}
   playerData: {fileID: 11400000, guid: f1175cb7579a44549a73ccd87a14b55e, type: 2}
---- !u!114 &977277502508197453
+--- !u!114 &5208005027854767743
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 977277502508197446}
+  m_GameObject: {fileID: 5208005027854767732}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dcdff1f3b2e97a148a18e4dd92d537cf, type: 3}
@@ -69,7 +70,7 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 977277502508197448}
+      - m_Target: {fileID: 5208005027854767738}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: showPause
         m_Mode: 1
@@ -81,13 +82,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &977277502508197450
+--- !u!114 &5208005027854767736
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 977277502508197446}
+  m_GameObject: {fileID: 5208005027854767732}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dcdff1f3b2e97a148a18e4dd92d537cf, type: 3}
@@ -97,7 +98,7 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 977277502508197448}
+      - m_Target: {fileID: 5208005027854767738}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: showHUD
         m_Mode: 1
@@ -109,13 +110,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &977277502508197451
+--- !u!114 &5208005027854767737
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 977277502508197446}
+  m_GameObject: {fileID: 5208005027854767732}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dcdff1f3b2e97a148a18e4dd92d537cf, type: 3}
@@ -125,7 +126,7 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 977277502508197448}
+      - m_Target: {fileID: 5208005027854767738}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: DrawPlayerStats
         m_Mode: 1

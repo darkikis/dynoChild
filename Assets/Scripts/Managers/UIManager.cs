@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI itemsText;
     public TextMeshProUGUI lifesText;
     public TextMeshProUGUI currentLevel;
+    public Slider sliderLifePoints;
 
     public PlayerData playerData;
     void Start()
@@ -44,5 +46,6 @@ public class UIManager : MonoBehaviour
 
         lifesText.text = "x" + playerData.lifes.ToString();
         currentLevel.text = "W-" + playerData.currentLevel;
+        sliderLifePoints.value = playerData.lifePoints;
     }
 }

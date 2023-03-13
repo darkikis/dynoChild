@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private bool canPunch = true;
 
     public GameEvent dieEvent;
+    public GameEvent restoreLifePointsEvent;
 
     public Transform respawn;
 
@@ -43,13 +44,9 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         animatorState = playerAnimator.GetCurrentAnimatorStateInfo(0);
-        //animatorStateWave = playerAnimator.GetCurrentAnimatorStateInfo(1);
-        //animatorStateAttack = playerAnimator.GetCurrentAnimatorStateInfo(2);
-
-        playerAnimator.SetFloat("speed", 
-            Input.GetAxis("Vertical"));
-        playerAnimator.SetFloat("direction",
-            Input.GetAxis("Horizontal"));
+        
+        playerAnimator.SetFloat("speed", Input.GetAxis("Vertical"));
+        playerAnimator.SetFloat("direction", Input.GetAxis("Horizontal"));
 
         if (Input.GetKeyDown(KeyCode.Space) && (animatorState.IsName("LocomotionRun") || animatorState.IsName("Idle"))) {
             
@@ -91,8 +88,7 @@ public class PlayerController : MonoBehaviour
         {
 
             playerAnimator.SetTrigger("dive");
-            rb.AddForce(Vector3.up * jumpAmount, ForceMode.Impulse);
-            //AudioManager.instance.PlaySFX(SFXType.JUMP);
+            
         }
 
     }
@@ -197,6 +193,7 @@ public class PlayerController : MonoBehaviour
         if (other.transform.CompareTag("Fall"))
         {
             dieEvent.Raise();
+            restoreLifePointsEvent.Raise();
             this.transform.position = respawn.position;
         }
     }

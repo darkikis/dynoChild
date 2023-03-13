@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
 
     public GameEvent dieEvent;
     public GameEvent restoreLifePointsEvent;
+    public GameEvent respawnEvent;
 
     public Transform respawn;
 
@@ -35,12 +36,17 @@ public class PlayerController : MonoBehaviour
     {
         
         playerAnimator = GetComponent<Animator>();
-       
+        
         //enemyActive = null;
 
 
     }
-    
+
+    private void Awake()
+    {
+        respawnEvent.Raise();
+    }
+
     void Update()
     {
         animatorState = playerAnimator.GetCurrentAnimatorStateInfo(0);
@@ -210,6 +216,10 @@ public class PlayerController : MonoBehaviour
             //this.enemyActive = null;
 
         }
+    }
+
+    public void RespawnPlayer() {
+        this.transform.position = respawn.position;
     }
 
     

@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
 {
     public NavMeshAgent enemyAgent;
     public Animator enemyAnimator;
-    public Transform playerTransform;
+    private Transform playerTransform;
 
     public Vector2 patrolRange;
 
@@ -17,6 +17,8 @@ public class EnemyController : MonoBehaviour
 
     public float patrolTime;
     public float chaseTime;
+
+    public GameEvent battleScenceEvent;
 
     // Start is called before the first frame update
     void Start()
@@ -73,14 +75,19 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        
         //Debug.Log("EnemyController Collision with:" + other.transform.tag);
-        if (other.transform.CompareTag("Player"))
-        {
+        if (other.transform.CompareTag("Player")){
+            if (battleScenceEvent != null) {
+                battleScenceEvent.Raise();
+            }
+            
+            this.playerTransform = other.transform;
             if (other.GetType() != typeof(BoxCollider)) {
                 if (currenState == EnemyState.PATROL)
                 {
                     currenState = EnemyState.CHASE;
-
+                   
                     CancelInvoke("GenerateRandomDestination");
                 }
             }

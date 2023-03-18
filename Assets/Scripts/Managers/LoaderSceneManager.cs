@@ -6,15 +6,18 @@ using UnityEngine.SceneManagement;
 public class LoaderSceneManager : MonoBehaviour
 {
     public GameEvent stopMusicEvent;
-    public void LoadLevel11Scene()
+    public void LoadLevel1_1Scene()
     {
-        Debug.Log("LoadLevel11Scene");
-        // Only specifying the sceneName or sceneBuildIndex will load the Scene with the Single mode
         
             SceneManager.LoadScene("Level1-1", LoadSceneMode.Single);
             stopMusicEvent.Raise();
             
         
         
+    }
+
+    public void LoadBattle1_1Scene() {
+        SceneManager.LoadScene("Battle1-1", LoadSceneMode.Single);
+        stopMusicEvent.Raise();
     }
 }

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1488036630474235332
+--- !u!1 &4405598166644600797
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,25 +8,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1488036630474235334}
-  - component: {fileID: 1488036630474235333}
-  - component: {fileID: 1488036629170616757}
-  - component: {fileID: 1488036629170616759}
-  - component: {fileID: 1488036629170616752}
+  - component: {fileID: 4405598166644600796}
+  - component: {fileID: 4405598166644600799}
+  - component: {fileID: 4405598166644600798}
+  - component: {fileID: 4405598166644600793}
   m_Layer: 0
-  m_Name: DataManagment
+  m_Name: LoadSceneManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1488036630474235334
+--- !u!4 &4405598166644600796
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1488036630474235332}
+  m_GameObject: {fileID: 4405598166644600797}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -35,39 +34,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1488036630474235333
+--- !u!114 &4405598166644600799
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1488036630474235332}
+  m_GameObject: {fileID: 4405598166644600797}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85203a6206cf5cc48b170ac2caafec8a, type: 3}
+  m_Script: {fileID: 11500000, guid: f668c998b32ef1d4c897c4257634f7e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData: {fileID: 11400000, guid: f1175cb7579a44549a73ccd87a14b55e, type: 2}
-  drawUIEvent: {fileID: 11400000, guid: 5accf0de562dcb24da8a0cf76719e268, type: 2}
---- !u!114 &1488036629170616757
+  stopMusicEvent: {fileID: 11400000, guid: f08cbbe943b4b7a4d81b9a1ff3b13bc2, type: 2}
+--- !u!114 &4405598166644600798
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1488036630474235332}
+  m_GameObject: {fileID: 4405598166644600797}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dcdff1f3b2e97a148a18e4dd92d537cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: a8c9d8a56887df144b716440c7acc126, type: 2}
+  Event: {fileID: 11400000, guid: d2ccdd7e41e7eb44390943344babc6fe, type: 2}
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1488036630474235333}
-        m_TargetAssemblyTypeName: DataManagment, Assembly-CSharp
-        m_MethodName: Die
+      - m_Target: {fileID: 4405598166644600799}
+        m_TargetAssemblyTypeName: LoaderSceneManager, Assembly-CSharp
+        m_MethodName: LoadLevel1_1Scene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -77,53 +75,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1488036629170616759
+--- !u!114 &4405598166644600793
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1488036630474235332}
+  m_GameObject: {fileID: 4405598166644600797}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dcdff1f3b2e97a148a18e4dd92d537cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 6ffb3d23df2eb234ca136dfa0d76665c, type: 2}
+  Event: {fileID: 11400000, guid: 3383c0e95d3652646bb5ba0aef5d961e, type: 2}
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1488036630474235333}
-        m_TargetAssemblyTypeName: DataManagment, Assembly-CSharp
-        m_MethodName: RecieveDamage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1488036629170616752
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1488036630474235332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcdff1f3b2e97a148a18e4dd92d537cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: d656f260a96c3834ea7ccc1d45a2a40c, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1488036630474235333}
-        m_TargetAssemblyTypeName: DataManagment, Assembly-CSharp
-        m_MethodName: RestoreLifePoints
+      - m_Target: {fileID: 4405598166644600799}
+        m_TargetAssemblyTypeName: LoaderSceneManager, Assembly-CSharp
+        m_MethodName: LoadBattle1_1Scene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f9435fef1372184bbd14fa830cd1b83, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  lifes: 0
+  lifes: 5
   itmes: 0
-  currentLevel: 0
+  currentLevel: 1
+  lifePoints: 100

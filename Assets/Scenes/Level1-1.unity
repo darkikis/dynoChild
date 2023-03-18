@@ -5918,6 +5918,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4549531195071516290, guid: d38310511b68a3b40994e961d71f5f49, type: 3}
   m_PrefabInstance: {fileID: 4549531194139230150}
   m_PrefabAsset: {fileID: 0}
+--- !u!195 &989761205 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 6250279920690529481, guid: f7e67d972e359db47a2c79c692e6d110, type: 3}
+  m_PrefabInstance: {fileID: 4385908138086609693}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1023603562
 GameObject:
   m_ObjectHideFlags: 0
@@ -6104,17 +6109,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1218594138 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4405598166644600799, guid: fbb48037109073240b27cbc283e89379, type: 3}
-  m_PrefabInstance: {fileID: 4405598165694474885}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f668c998b32ef1d4c897c4257634f7e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1273404392
 GameObject:
   m_ObjectHideFlags: 0
@@ -7085,6 +7079,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 6250279920690529486, guid: f7e67d972e359db47a2c79c692e6d110, type: 3}
+      propertyPath: enemyAgent
+      value: 
+      objectReference: {fileID: 989761205}
     - target: {fileID: 6770780322003181174, guid: f7e67d972e359db47a2c79c692e6d110, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -7444,36 +7442,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ac29cb57c61d594f97037dfcce20375, type: 3}
---- !u!1 &8054069724803560559 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8054069725111583353, guid: 8ac29cb57c61d594f97037dfcce20375, type: 3}
-  m_PrefabInstance: {fileID: 8054069724803560558}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8054069724803560560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8054069724803560559}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcdff1f3b2e97a148a18e4dd92d537cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: d2ccdd7e41e7eb44390943344babc6fe, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1218594138}
-        m_TargetAssemblyTypeName: LoaderSceneManager, Assembly-CSharp
-        m_MethodName: LoadLevel11Scene
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2

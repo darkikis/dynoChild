@@ -76,12 +76,15 @@ public class EnemyController : MonoBehaviour
         //Debug.Log("EnemyController Collision with:" + other.transform.tag);
         if (other.transform.CompareTag("Player"))
         {
-            if (currenState == EnemyState.PATROL)
-            {
-                currenState = EnemyState.CHASE;
-                
-                CancelInvoke("GenerateRandomDestination");
+            if (other.GetType() != typeof(BoxCollider)) {
+                if (currenState == EnemyState.PATROL)
+                {
+                    currenState = EnemyState.CHASE;
+
+                    CancelInvoke("GenerateRandomDestination");
+                }
             }
+            
         }
     }
 

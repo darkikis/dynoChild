@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
 
     public Transform objectToGrab;
 
-    public Transform objectToPunch;
+    private Transform objectToPunch;
 
     public Rigidbody rb;
 
@@ -76,6 +76,12 @@ public class PlayerController : MonoBehaviour
         if (canPunch && Input.GetKeyDown(KeyCode.Mouse0))
         {
             playerAnimator.SetTrigger("punch");
+
+            if (objectToPunch != null) {
+                Vector3 ver = new Vector3(objectToPunch.position.x, this.transform.position.y, objectToPunch.position.z);
+                transform.LookAt(ver);
+            }
+
             //counterAnimationAttack = 0;
         }
         else if(!canPunch && Input.GetKeyDown(KeyCode.Mouse0))
@@ -176,24 +182,11 @@ public class PlayerController : MonoBehaviour
     {
         if (other.transform.CompareTag("Enemy"))
         {
-            //Debug.Log("IF OnTriggerEnter:" + other.transform.tag);
+            Debug.Log("IF OnTriggerEnter:" + other.transform.tag);
             //this.objectToPunch = other.transform.FindChild("HeadEnemy").transform;
-            Transform headEnemy = other.transform.Find("HeadEnemy");
-            //Debug.Log("::::--->" + this.transform.position.y);
-            if (headEnemy != null) {
-                //headEnemy.position.y = 1.75f;
-                this.objectToPunch = headEnemy;
-                Vector3 temp = new Vector3(headEnemy.position.x, this.transform.position.y, headEnemy.position.z);
-                objectToPunch.transform.position = temp;
-
-            }
-            /*
-            this.enemyActive = other.transform.parent.GetComponent<EnemyController>();
-            if (enemyActive != null) {
-                Debug.Log("enemiCtrl--->>>>>>>");
-                
-            }
-            */
+            this.objectToPunch = other.transform;
+            
+            
         }
 
         if (other.transform.CompareTag("Fall"))

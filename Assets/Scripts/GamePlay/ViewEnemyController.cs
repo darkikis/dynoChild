@@ -16,6 +16,7 @@ public class ViewEnemyController : MonoBehaviour
             {
                 enemiCtrl.setCurrentState(EnemyState.CHASE);
                 enemiCtrl.cancelInvoke("GenerateRandomDestination");
+                enemiCtrl.setPlayerTransform(other.transform);
                 //CancelInvoke("GenerateRandomDestination");
             }
 
@@ -35,7 +36,8 @@ public class ViewEnemyController : MonoBehaviour
                 enemiCtrl.setCurrentState(EnemyState.PATROL);
 
                 enemiCtrl.getEnemyAnimator().SetBool("attack", false);
-                enemiCtrl.getEnemyAnimator().SetBool("idle", true);
+                enemiCtrl.getEnemyAnimator().SetFloat("attackF", 0.0f);
+
                 //enemiCtrl.getEnemyAnimator().SetFloat("speed", enemiCtrl.getEnemyAgent().velocity.sqrMagnitude);
                 enemiCtrl.invokeMethodName("GenerateRandomDestination");
                 //CancelInvoke("GenerateRandomDestination");

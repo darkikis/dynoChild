@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class EnemyController : MonoBehaviour
 {
@@ -20,12 +21,17 @@ public class EnemyController : MonoBehaviour
 
     public GameEvent battleScenceEvent;
 
+    private float lifeEnemy = 100f;
+
+    public Slider enemySlider;
+
     // Start is called before the first frame update
     void Start()
     {
         enemyAgent = GetComponent<NavMeshAgent>();
         enemyAnimator = GetComponent<Animator>();
         currenState = EnemyState.PATROL;
+        
         UpdateState();
     }
 
@@ -36,12 +42,20 @@ public class EnemyController : MonoBehaviour
         {
             enemyAnimator.SetFloat("speed", 0f);
 
-            enemyAgent.SetDestination(playerTransform.position);
+            if (playerTransform != null) {
+                enemyAgent.SetDestination(playerTransform.position);
+            }
+            
         }
 
         enemyAnimator.SetFloat("speed", enemyAgent.velocity.sqrMagnitude);
 
         
+    }
+
+    private void Awake()
+    {
+        transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
     }
 
     private void UpdateState()
@@ -80,9 +94,7 @@ public class EnemyController : MonoBehaviour
         
         //Debug.Log("EnemyController Collision with:" + other.transform.tag);
         if (other.transform.CompareTag("Player")){
-            if (battleScenceEvent != null) {
-                battleScenceEvent.Raise();
-            }
+           
             
             this.playerTransform = other.transform;
             if (other.GetType() != typeof(BoxCollider)) {
@@ -132,9 +144,24 @@ public class EnemyController : MonoBehaviour
         InvokeRepeating(methodName, 0f, patrolTime);
     }
 
-    public void setValueLife()
+    public void setPlayerTransform(Transform playerTransformParam)
     {
-        
+        this.playerTransform = playerTransformParam;
+    }
+
+    public void setDamage()
+    {
+        Debug.Log(this.lifeEnemy);
+        this.lifeEnemy = this.lifeEnemy - 5;
+        this.enemySlider.value = this.lifeEnemy;
+        if (this.lifeEnemy <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    public GameEvent getBattleEvent() {
+        return this.battleScenceEvent;
     }
 }
 

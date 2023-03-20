@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
 
     public Transform respawn;
 
+    EnemyController currentEnemy;
+
     //private EnemyController enemyActive;
 
     //pprivate int counterAnimationAttack = 0;
@@ -80,6 +82,10 @@ public class PlayerController : MonoBehaviour
             if (objectToPunch != null) {
                 Vector3 ver = new Vector3(objectToPunch.position.x, this.transform.position.y, objectToPunch.position.z);
                 transform.LookAt(ver);
+
+                if (currentEnemy != null) {
+                    currentEnemy.setDamage();
+                }
             }
 
             //counterAnimationAttack = 0;
@@ -185,15 +191,17 @@ public class PlayerController : MonoBehaviour
             Debug.Log("IF OnTriggerEnter:" + other.transform.tag);
             //this.objectToPunch = other.transform.FindChild("HeadEnemy").transform;
             this.objectToPunch = other.transform;
-            
-            
+            this.currentEnemy = other.transform.parent.GetComponent<EnemyController>();
+
+
+
         }
 
         if (other.transform.CompareTag("Fall"))
         {
             dieEvent.Raise();
             restoreLifePointsEvent.Raise();
-            this.transform.position = respawn.position;
+            this.RespawnPlayer();
         }
     }
 
@@ -206,7 +214,7 @@ public class PlayerController : MonoBehaviour
 
             
             this.objectToPunch = null;
-            //this.enemyActive = null;
+            this.currentEnemy = null;
 
         }
     }

@@ -7,6 +7,9 @@ public class DataManagment : MonoBehaviour
     public PlayerData playerData;
 
     public GameEvent drawUIEvent;
+
+    public GameEvent respawnPlayerEvent;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +25,11 @@ public class DataManagment : MonoBehaviour
     public void RecieveDamage()
     {
         playerData.lifePoints -= 5;
+        if (playerData.lifePoints <= 0) {
+            this.Die();
+            this.RestoreLifePoints();
+            this.respawnPlayerEvent.Raise();
+        }
         drawUIEvent.Raise();
     }
 

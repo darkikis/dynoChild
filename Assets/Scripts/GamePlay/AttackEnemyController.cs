@@ -12,7 +12,7 @@ public class AttackEnemyController : MonoBehaviour
         {
             EnemyController enemiCtrl = this.transform.parent.GetComponent<EnemyController>();
 
-            //Debug.Log("Capsule Collider state:" + enemiCtrl.getCurrentState());
+            Debug.Log("Capsule Collider state:" + enemiCtrl.getCurrentState());
 
             if (enemiCtrl.getCurrentState() == EnemyState.CHASE)
             {

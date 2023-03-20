@@ -64,6 +64,8 @@ public class EnemyController : MonoBehaviour
 
 
         enemyAgent.SetDestination(randomPosition);
+        //Vector3 ver = new Vector3(randomPosition.x, this.transform.position.y, randomPosition.z);
+        //transform.LookAt(ver);
 
         Debug.Log("GenerateRandomDestination:");
     }

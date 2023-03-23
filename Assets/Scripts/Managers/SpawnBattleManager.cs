@@ -7,11 +7,14 @@ public class SpawnBattleManager : MonoBehaviour
     public Transform[] spawnPoints;
     public GameObject[] enemies;
 
+
     public int startSpawnTime = 10;
     public int spawnTime = 5;
     public int spawPointLength;
+    public int maxEnemies = 1;
 
     private int counterEnemies = 0;
+    
 
 
     // Use this for initialization
@@ -23,7 +26,7 @@ public class SpawnBattleManager : MonoBehaviour
 
     void Spawn()
     {
-        if (counterEnemies < 10)
+        if (counterEnemies < maxEnemies)
         {
             counterEnemies++;
             int spawnPoints = Random.Range(0, spawPointLength);

@@ -31,6 +31,8 @@ public class PlayerController : MonoBehaviour
 
     EnemyController currentEnemy;
 
+    public PlayerData palayerData;
+
     //private EnemyController enemyActive;
 
     //pprivate int counterAnimationAttack = 0;
@@ -47,6 +49,18 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         respawnEvent.Raise();
+
+        if (palayerData != null)
+        {
+            Debug.Log("Hay datos para mover");
+            this.transform.position = new Vector3(
+                palayerData.playerPosition.x,
+                palayerData.playerPosition.y,
+                palayerData.playerPosition.z);
+        }
+        else {
+            Debug.Log("NO Hay datos para mover");
+        }
     }
 
     void Update()

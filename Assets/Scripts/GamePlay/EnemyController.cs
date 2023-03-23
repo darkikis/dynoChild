@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -74,10 +75,17 @@ public class EnemyController : MonoBehaviour
 
     private void GenerateRandomDestination()
     {
-        randomPosition = transform.position + new Vector3(Random.Range(-patrolRange.x, patrolRange.x), 0f, Random.Range(-patrolRange.y, patrolRange.y));
+        randomPosition = transform.position + new Vector3(UnityEngine.Random.Range(-patrolRange.x, patrolRange.x), 0f, UnityEngine.Random.Range(-patrolRange.y, patrolRange.y));
 
-
-        enemyAgent.SetDestination(randomPosition);
+        try
+        {
+            enemyAgent.SetDestination(randomPosition);
+        }
+        catch (Exception e)
+        {
+            Debug.Log("GenerateRandomDestination:");
+        }
+        
         //Vector3 ver = new Vector3(randomPosition.x, this.transform.position.y, randomPosition.z);
         //transform.LookAt(ver);
 
@@ -157,6 +165,11 @@ public class EnemyController : MonoBehaviour
         if (this.lifeEnemy <= 0)
         {
             Destroy(this.gameObject);
+            BattleManager.instance.CountEnemyDefeat();
+            if (BattleManager.instance.counterEnemiesDefeat >= BattleManager.instance.counterMaxEnemiesDefeat) {
+               PlayerProfileManager.instance.ReturnLevelExplorerCurrent();
+
+            }
         }
     }
 

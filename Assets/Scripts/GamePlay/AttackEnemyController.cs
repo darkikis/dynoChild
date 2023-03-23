@@ -24,6 +24,7 @@ public class AttackEnemyController : MonoBehaviour
                 drawUIEvent.Raise();
                 if (enemiCtrl.getBattleEvent() != null)
                 {
+                    PlayerProfileManager.instance.SaveDataCurrent();
                     enemiCtrl.getBattleEvent().Raise();
                 }
                 //CancelInvoke("GenerateRandomDestination");

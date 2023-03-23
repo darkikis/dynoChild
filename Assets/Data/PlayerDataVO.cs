@@ -1,11 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using System;
-
-[CreateAssetMenu(fileName = "PlayerData", menuName = "PlayerData/PlayerData")]
+using UnityEngine;
 [Serializable]
-public class PlayerData : ScriptableObject
+public class PlayerDataVO
 {
     public int lifes;
     public int itmes;

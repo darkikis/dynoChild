@@ -9,7 +9,7 @@ public class LoaderSceneManager : MonoBehaviour
     public void LoadLevel1_1Scene()
     {
         
-            SceneManager.LoadScene("Level1-1", LoadSceneMode.Single);
+            SceneManager.LoadScene(LoadSceneNames.LEVEL1_1_SCENE, LoadSceneMode.Single);
             stopMusicEvent.Raise();
             
         
@@ -17,7 +17,13 @@ public class LoaderSceneManager : MonoBehaviour
     }
 
     public void LoadBattle1_1Scene() {
-        SceneManager.LoadScene("Battle1-1", LoadSceneMode.Single);
+        SceneManager.LoadScene(LoadSceneNames.BATTLE1_1_SCENE, LoadSceneMode.Single);
         stopMusicEvent.Raise();
+    }
+
+
+    public void LoadSceneByName(string nameScene)
+    {
+        SceneManager.LoadScene(nameScene, LoadSceneMode.Single);
     }
 }

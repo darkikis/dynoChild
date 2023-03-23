@@ -1,23 +1,43 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DataManagment : MonoBehaviour
 {
-    public PlayerData playerData;
+    private PlayerData playerData;
 
     public GameEvent drawUIEvent;
 
     public GameEvent respawnPlayerEvent;
 
-    // Start is called before the first frame update
+    public PlayerProfileManager profileManager;
+
+
     void Start()
     {
-        playerData.lifes = 5;
-        playerData.itmes = 0;
-        playerData.currentLevel = 1;
-        playerData.lifePoints = 100;
+        Debug.Log("inicilizando star() en DataManagment...");
+        try
+        {
+            playerData = profileManager.LoadDataCurrent();
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e);
+        }
+       
+        Debug.Log("playerData is :" + playerData);
+        if (playerData == null) {
+            playerData = new PlayerData();
+            playerData.lifes = 15;
+            playerData.itmes = 0;
+            playerData.currentLevel = 1;
+            playerData.lifePoints = 100;
+            playerData.counterEnemies = 0;
+            playerData.counterItems = 0;
 
+        }
+           
         drawUIEvent.Raise();
 
     }
@@ -53,6 +73,18 @@ public class DataManagment : MonoBehaviour
 
     public void RestoreLifePoints() { 
         playerData.lifePoints = 100;
+        drawUIEvent.Raise();
+    }
+
+    public void CounterEnemies()
+    {
+        playerData.counterEnemies++;
+        drawUIEvent.Raise();
+    }
+
+    public void CounterItems()
+    {
+        playerData.counterItems++;
         drawUIEvent.Raise();
     }
 }

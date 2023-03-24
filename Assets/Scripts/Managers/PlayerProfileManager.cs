@@ -4,13 +4,16 @@ using UnityEngine;
 using System.IO;
 using UnityEngine.SceneManagement;
 
-public class PlayerProfileManager : MonoBehaviour
+public class PlayerProfileManagers : MonoBehaviour
 {
 
-    public static PlayerProfileManager instance;
+    public static PlayerProfileManagers instance;
 
-    public PlayerData playerData;
+    
     public Transform playerPostion;
+    public PlayerData playerData;
+    
+    
 
 
     public LoaderSceneManager loaderSceneManager;
@@ -32,6 +35,8 @@ public class PlayerProfileManager : MonoBehaviour
 
     public void LoadData()
     {
+           
+        PlayerData playerDatToLoad = new PlayerData();
         Debug.Log("LoadData...");
         bool isExistFileToLoad = false;
 
@@ -42,11 +47,7 @@ public class PlayerProfileManager : MonoBehaviour
             PlayerDataVO playerVO = JsonUtility.FromJson<PlayerDataVO>(objString);
             if (playerVO != null)
             {
-                playerData.currentLevel = playerVO.currentLevel;
-                playerData.lifePoints = playerVO.lifePoints;
-                playerData.lifes = playerVO.lifes;
-                playerData.sceneName = playerVO.sceneName;
-                playerData.counterEnemies = playerVO.counterEnemies;
+                populationVO(playerDatToLoad, playerVO);
             }
             isExistFileToLoad = true;
             sr.Close();
@@ -77,8 +78,8 @@ public class PlayerProfileManager : MonoBehaviour
 
     public PlayerData LoadDataCurrent()
     {
-        PlayerData playerDatToLoad = new PlayerData();
 
+        PlayerData playerDatToLoad = new PlayerData();
         Debug.Log(Application.persistentDataPath);
 
         if (File.Exists(Application.persistentDataPath + "/" + fileNameCurrent))
@@ -89,10 +90,7 @@ public class PlayerProfileManager : MonoBehaviour
             Debug.Log(objString);
             PlayerDataVO playerVO = JsonUtility.FromJson<PlayerDataVO>(objString);
             if(playerVO != null){
-                playerDatToLoad.currentLevel = playerVO.currentLevel;
-                playerDatToLoad.lifePoints = playerVO.lifePoints;
-                playerDatToLoad.lifes = playerVO.lifes;
-                playerDatToLoad.sceneName = playerVO.sceneName;
+                populationVO(playerDatToLoad, playerVO);
             }
 
 
@@ -117,12 +115,10 @@ public class PlayerProfileManager : MonoBehaviour
         if (playerData != null)
         {
             
-            if (playerData.sceneName == null)
-            {
-                playerData.sceneName = SceneManager.GetActiveScene().name;
-            }
+            
+            playerData.sceneName = SceneManager.GetActiveScene().name;
             playerData.playerPosition = new Vector3(this.playerPostion.position.x, this.playerPostion.position.y, this.playerPostion.position.z);
-            playerData.playerTransform = playerPostion;
+            
 
         }
         else {
@@ -130,6 +126,7 @@ public class PlayerProfileManager : MonoBehaviour
             playerData.currentLevel = 1;
             playerData.lifePoints = 100;
             playerData.lifes = 10;
+            playerData.sceneName = LoadSceneNames.LEVEL1_1_SCENE;
 
         }
 
@@ -147,7 +144,6 @@ public class PlayerProfileManager : MonoBehaviour
     public void ReturnLevelExplorerCurrent()
     {
         PlayerData playerDatToLoad = new PlayerData();
-
         Debug.Log(Application.persistentDataPath);
 
         if (File.Exists(Application.persistentDataPath + "/" + fileNameCurrent))
@@ -159,10 +155,7 @@ public class PlayerProfileManager : MonoBehaviour
             PlayerDataVO playerVO = JsonUtility.FromJson<PlayerDataVO>(objString);
             if (playerVO != null)
             {
-                playerDatToLoad.currentLevel = playerVO.currentLevel;
-                playerDatToLoad.lifePoints = playerVO.lifePoints;
-                playerDatToLoad.lifes = playerVO.lifes;
-                playerDatToLoad.sceneName = playerVO.sceneName;
+                populationVO(playerDatToLoad, playerVO);
             }
 
 
@@ -180,5 +173,13 @@ public class PlayerProfileManager : MonoBehaviour
         loaderSceneManager.LoadSceneByName(playerDatToLoad.sceneName);
 
 
+    }
+
+    public void populationVO(PlayerData playerDatToLoad, PlayerDataVO playerVO) {
+        playerDatToLoad.currentLevel = playerVO.currentLevel;
+        playerDatToLoad.lifePoints = playerVO.lifePoints;
+        playerDatToLoad.lifes = playerVO.lifes;
+        playerDatToLoad.sceneName = playerVO.sceneName;
+        playerDatToLoad.playerPosition = playerVO.playerPosition;
     }
 }

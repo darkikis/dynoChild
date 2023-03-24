@@ -11,56 +11,40 @@ public class PlayerController : MonoBehaviour
     private AnimatorStateInfo animatorStateWave;
     private AnimatorStateInfo animatorStateAttack;
 
-    public CapsuleCollider playerCollider;
-
-    public Transform objectToGrab;
+    EnemyController currentEnemy;
 
     private Transform objectToPunch;
 
-    public Rigidbody rb;
-
-    public float jumpAmount;
-
     private bool canPunch = true;
 
+    
+    public CapsuleCollider playerCollider;
+    public Transform objectToGrab;
+    public Rigidbody rb;
+    public float jumpAmount;
     public GameEvent dieEvent;
     public GameEvent restoreLifePointsEvent;
     public GameEvent respawnEvent;
-
     public Transform respawn;
+    public PlayerData playerData;
 
-    EnemyController currentEnemy;
-
-    public PlayerData palayerData;
-
-    //private EnemyController enemyActive;
-
-    //pprivate int counterAnimationAttack = 0;
     void Start()
     {
         
         playerAnimator = GetComponent<Animator>();
-        
-        //enemyActive = null;
 
 
     }
 
     private void Awake()
     {
-        respawnEvent.Raise();
-
-        if (palayerData != null)
-        {
-            Debug.Log("Hay datos para mover");
-            this.transform.position = new Vector3(
-                palayerData.playerPosition.x,
-                palayerData.playerPosition.y,
-                palayerData.playerPosition.z);
+        if (!playerData.newGame && !playerData.isBattle){
+            this.transform.position = playerData.playerPosition;
         }
         else {
-            Debug.Log("NO Hay datos para mover");
+            respawnEvent.Raise();
         }
+        
     }
 
     void Update()
@@ -74,7 +58,7 @@ public class PlayerController : MonoBehaviour
             
             playerAnimator.SetTrigger("jump");
             rb.AddForce(Vector3.up * jumpAmount, ForceMode.Impulse);
-            //AudioManager.instance.PlaySFX(SFXType.JUMP);
+            
         }
 
         if (Input.GetKeyDown(KeyCode.P)) {

@@ -5,6 +5,8 @@ using UnityEngine;
 public class AttackEnemyController : MonoBehaviour
 {
     public GameEvent drawUIEvent;
+    public GameEvent saveDataCurrentEvent;
+
     private void OnTriggerEnter(Collider other)
     {
         //Debug.Log("EnemyCapCollController Collision with:" + other.gameObject.name);
@@ -24,7 +26,7 @@ public class AttackEnemyController : MonoBehaviour
                 drawUIEvent.Raise();
                 if (enemiCtrl.getBattleEvent() != null)
                 {
-                    PlayerProfileManager.instance.SaveDataCurrent();
+                    saveDataCurrentEvent.Raise();
                     enemiCtrl.getBattleEvent().Raise();
                 }
                 //CancelInvoke("GenerateRandomDestination");

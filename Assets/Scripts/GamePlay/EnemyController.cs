@@ -26,6 +26,8 @@ public class EnemyController : MonoBehaviour
 
     public Slider enemySlider;
 
+    public GameEvent loadCurrentEvent;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -167,7 +169,7 @@ public class EnemyController : MonoBehaviour
             Destroy(this.gameObject);
             BattleManager.instance.CountEnemyDefeat();
             if (BattleManager.instance.counterEnemiesDefeat >= BattleManager.instance.counterMaxEnemiesDefeat) {
-               PlayerProfileManager.instance.ReturnLevelExplorerCurrent();
+                loadCurrentEvent.Raise();
 
             }
         }

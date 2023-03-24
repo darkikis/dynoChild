@@ -15,5 +15,7 @@ public class PlayerData : ScriptableObject
     public int counterEnemies;
     public int counterItems;
     public Vector3 playerPosition;
-    public Transform playerTransform;
+    public bool newGame;
+    public bool isBattle;
+
 }

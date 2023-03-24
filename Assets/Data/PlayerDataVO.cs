@@ -11,5 +11,5 @@ public class PlayerDataVO
     public int counterEnemies;
     public int counterItems;
     public Vector3 playerPosition;
-    public Transform playerTransform;
+    public bool newGame;
 }

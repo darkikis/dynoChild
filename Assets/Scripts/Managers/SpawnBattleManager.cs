@@ -34,8 +34,11 @@ public class SpawnBattleManager : MonoBehaviour
             Debug.Log(spawnPoints);
             Debug.Log(randomNuke);
             Debug.Log(this.enemies[randomNuke]);
-            //GameObject instan =  
-            Instantiate(this.enemies[randomNuke], this.spawnPoints[spawnPoints].position, this.spawnPoints[spawnPoints].rotation);
+            //GameObject instan = 
+            if(enemies != null && this.enemies[randomNuke] != null){
+                Instantiate(this.enemies[randomNuke], this.spawnPoints[spawnPoints].position, this.spawnPoints[spawnPoints].rotation);
+            }
+            
             //instan.SetActive(true);
         }
         else {

@@ -56,6 +56,11 @@ public class GameManager : MonoBehaviour
         currentState = GameState.NEW_GAME;
         EvaluateState();
     }
+
+
+    public GameState getCurrentState() {
+        return this.currentState;
+    }
 }
 
 public enum GameState
@@ -66,5 +71,6 @@ public enum GameState
     PLAYING,
     GAME_OVER,
     PAUSE,
-    BATTLE
+    BATTLE,
+    EXPLORE
 }

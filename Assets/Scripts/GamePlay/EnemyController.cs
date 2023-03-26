@@ -28,6 +28,8 @@ public class EnemyController : MonoBehaviour
 
     public GameEvent loadCurrentEvent;
 
+    public GameManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -168,10 +170,14 @@ public class EnemyController : MonoBehaviour
         {
             Destroy(this.gameObject);
             BattleManager.instance.CountEnemyDefeat();
-            if (BattleManager.instance.counterEnemiesDefeat >= BattleManager.instance.counterMaxEnemiesDefeat) {
-                loadCurrentEvent.Raise();
+            if (gameManager.currentState != GameState.EXPLORE) {
+                if (BattleManager.instance.counterEnemiesDefeat >= BattleManager.instance.counterMaxEnemiesDefeat)
+                {
+                    loadCurrentEvent.Raise();
 
+                }
             }
+            
         }
     }
 
@@ -183,12 +189,16 @@ public class EnemyController : MonoBehaviour
         if (this.lifeEnemy <= 0)
         {
             Destroy(this.gameObject);
-            BattleManager.instance.CountEnemyDefeat();
-            if (BattleManager.instance.counterEnemiesDefeat >= BattleManager.instance.counterMaxEnemiesDefeat)
-            {
-                loadCurrentEvent.Raise();
+            if (BattleManager.instance != null) {
 
+                BattleManager.instance.CountEnemyDefeat();
+                if (BattleManager.instance.counterEnemiesDefeat >= BattleManager.instance.counterMaxEnemiesDefeat)
+                {
+                    loadCurrentEvent.Raise();
+
+                }
             }
+            
         }
     }
 

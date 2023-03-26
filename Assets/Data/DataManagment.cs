@@ -62,7 +62,7 @@ public class DataManagment : MonoBehaviour
 
     public void RecieveDamage()
     {
-        playerData.lifePoints -= 5;
+        playerData.lifePoints--;
         if (playerData.lifePoints <= 0) {
             this.Die();
             this.RestoreLifePoints();

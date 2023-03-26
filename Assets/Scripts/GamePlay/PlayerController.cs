@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     public GameEvent respawnEvent;
     public Transform respawn;
     public PlayerData playerData;
+    
 
     void Start()
     {

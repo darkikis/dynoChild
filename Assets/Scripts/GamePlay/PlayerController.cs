@@ -186,7 +186,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.transform.CompareTag("Enemy"))
         {
-            Debug.Log("IF OnTriggerEnter:" + other.transform.tag);
+            //Debug.Log("IF OnTriggerEnter:" + other.transform.tag);
             //this.objectToPunch = other.transform.FindChild("HeadEnemy").transform;
             this.objectToPunch = other.transform;
             this.currentEnemy = other.transform.parent.GetComponent<EnemyController>();
@@ -219,6 +219,10 @@ public class PlayerController : MonoBehaviour
 
     public void RespawnPlayer() {
         this.transform.position = respawn.position;
+    }
+
+    public bool getCanPunch() {
+        return this.canPunch;
     }
 
     

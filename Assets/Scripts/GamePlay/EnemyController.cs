@@ -63,7 +63,7 @@ public class EnemyController : MonoBehaviour
 
     private void UpdateState()
     {
-        Debug.Log(currenState);
+        //Debug.Log(currenState);
         switch (currenState)
         {
             case EnemyState.PATROL:
@@ -91,7 +91,7 @@ public class EnemyController : MonoBehaviour
         //Vector3 ver = new Vector3(randomPosition.x, this.transform.position.y, randomPosition.z);
         //transform.LookAt(ver);
 
-        Debug.Log("GenerateRandomDestination:");
+        //Debug.Log("GenerateRandomDestination:");
     }
 
     private void PlayerDestination()
@@ -169,6 +169,23 @@ public class EnemyController : MonoBehaviour
             Destroy(this.gameObject);
             BattleManager.instance.CountEnemyDefeat();
             if (BattleManager.instance.counterEnemiesDefeat >= BattleManager.instance.counterMaxEnemiesDefeat) {
+                loadCurrentEvent.Raise();
+
+            }
+        }
+    }
+
+    public void setDamageByExplosion()
+    {
+        Debug.Log(this.lifeEnemy);
+        this.lifeEnemy = this.lifeEnemy - 20;
+        this.enemySlider.value = this.lifeEnemy;
+        if (this.lifeEnemy <= 0)
+        {
+            Destroy(this.gameObject);
+            BattleManager.instance.CountEnemyDefeat();
+            if (BattleManager.instance.counterEnemiesDefeat >= BattleManager.instance.counterMaxEnemiesDefeat)
+            {
                 loadCurrentEvent.Raise();
 
             }

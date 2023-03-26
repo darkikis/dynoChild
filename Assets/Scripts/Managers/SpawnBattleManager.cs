@@ -31,9 +31,9 @@ public class SpawnBattleManager : MonoBehaviour
             counterEnemies++;
             int spawnPoints = Random.Range(0, spawPointLength);
             int randomNuke = Random.Range(0, enemies.Length);
-            Debug.Log(spawnPoints);
-            Debug.Log(randomNuke);
-            Debug.Log(this.enemies[randomNuke]);
+            //Debug.Log(spawnPoints);
+            //Debug.Log(randomNuke);
+            //Debug.Log(this.enemies[randomNuke]);
             //GameObject instan = 
             if(enemies != null && this.enemies[randomNuke] != null){
                 Instantiate(this.enemies[randomNuke], this.spawnPoints[spawnPoints].position, this.spawnPoints[spawnPoints].rotation);

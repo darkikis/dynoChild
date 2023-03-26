@@ -32,6 +32,12 @@ public class DataManagment : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log(SceneManager.GetActiveScene().name);
+        if (SceneManager.GetActiveScene().name.ToUpper().Contains("LEVEL"))
+        {
+            playerData.isBattle = false;
+        }
+
         Debug.Log("----------------------------------------------Awake");
         if (playerData.newGame)
         {
@@ -41,22 +47,32 @@ public class DataManagment : MonoBehaviour
             playerData.lifes = 13;
             playerData.sceneName = LoadSceneNames.LEVEL1_1_SCENE;
             playerData.playerPosition = new Vector3(0f, 0f, 0f);
+            playerData.counterEnemies = 0;
+            playerData.energyPoints = 100;
+            drawUIEvent.Raise();
         }
         else {
             Debug.Log("----------------------------------------------else");
-            if (playerData.playerPosition != null
+            if (!playerData.isBattle) {
+                if (playerData.playerPosition != null
                 && playerData.playerPosition.x != 0
                 && playerData.playerPosition.y != 0
-                && playerData.playerPosition.z != 0) {
+                && playerData.playerPosition.z != 0)
+                {
 
-                Debug.Log("----------------------------------------------else if");
-                if (this.playerTransform != null) {
-                    Debug.Log("----------------------------------------------else if if");
-                    this.playerTransform.position = playerData.playerPosition;
+                    Debug.Log("----------------------------------------------else if");
+                    if (this.playerTransform != null)
+                    {
+                        Debug.Log("----------------------------------------------else if if");
+                        this.playerTransform.position = playerData.playerPosition;
+                    }
+                    drawUIEvent.Raise();
                 }
-                
             }
+            
+            drawUIEvent.Raise();
         }
+        
         drawUIEvent.Raise();
     }
 
@@ -84,7 +100,7 @@ public class DataManagment : MonoBehaviour
     }
 
     public void Die() {
-        Debug.Log("die....");
+        
         playerData.lifePoints = 0;
         playerData.lifes--;
         drawUIEvent.Raise();
@@ -112,6 +128,23 @@ public class DataManagment : MonoBehaviour
         playerData.newGame = true;
     }
 
+    public void DiscountEnergy() {
+        playerData.energyPoints--;
+        if (playerData.energyPoints < 0) {
+            playerData.energyPoints = 0;
+        }
+        drawUIEvent.Raise();
+    }
+
+    public void UpdateEnergy() {
+
+        playerData.energyPoints = playerData.energyPoints + 5;
+        if (playerData.energyPoints > 100) {
+            playerData.energyPoints = 100;
+        }
+        drawUIEvent.Raise();
+    }
+
 
     public void SaveDataCurrent()
     {
@@ -136,12 +169,14 @@ public class DataManagment : MonoBehaviour
             playerData.sceneName = LoadSceneNames.LEVEL1_1_SCENE;
             playerData.newGame =  true;
             playerData.isBattle = false;
+            playerData.energyPoints = 100;
+            playerData.counterEnemies = 0;
 
         }
 
 
 
-        Debug.Log(Application.persistentDataPath);
+        //Debug.Log(Application.persistentDataPath);
         sw = new StreamWriter(Application.persistentDataPath + "/" + fileNameCurrent, false);
 
         string objString = JsonUtility.ToJson(playerData);
@@ -152,19 +187,23 @@ public class DataManagment : MonoBehaviour
 
     public void LoadDataCurrent()
     {
+        SaveStatsCurrent();
 
-        
-        Debug.Log(Application.persistentDataPath);
+
+        //Debug.Log(Application.persistentDataPath);
 
         if (File.Exists(Application.persistentDataPath + "/" + fileNameCurrent))
         {
-            Debug.Log("File with data");
+            //Debug.Log("File with data");
             sr = new StreamReader(Application.persistentDataPath + "/" + fileNameCurrent);
             string objString = sr.ReadToEnd();
-            Debug.Log(objString);
+            //Debug.Log(objString);
             PlayerDataVO playerVO = JsonUtility.FromJson<PlayerDataVO>(objString);
             if (playerVO != null)
             {
+                if (playerData != null && playerData.energyPoints > 0) { 
+                
+                }
                 populationVO(playerData, playerVO);
             }
 
@@ -178,10 +217,16 @@ public class DataManagment : MonoBehaviour
             playerData.lifePoints = 100;
             playerData.lifes = 10;
             playerData.sceneName = LoadSceneNames.LEVEL1_1_SCENE;
+            playerData.energyPoints = 100;
+            playerData.counterEnemies = 0;
 
         }
         playerData.isBattle = false;
-        SceneManager.LoadScene(playerData.sceneName, LoadSceneMode.Single);
+
+        if (SceneManager.GetActiveScene().name.ToUpper().Contains("BATTLE")) {
+            SceneManager.LoadScene(playerData.sceneName, LoadSceneMode.Single);
+        }
+            
 
     }
 
@@ -193,5 +238,57 @@ public class DataManagment : MonoBehaviour
         playerDatToLoad.sceneName = playerVO.sceneName;
         playerDatToLoad.playerPosition = playerVO.playerPosition;
         playerDatToLoad.newGame = playerVO.newGame;
+        playerDatToLoad.energyPoints = playerVO.energyPoints;
+        playerDatToLoad.counterEnemies = playerVO.counterEnemies;
     }
+
+
+    public void SaveStatsCurrent()
+    {
+        
+        //Debug.Log(Application.persistentDataPath);
+        PlayerData loadPlayerDataCurrent = new PlayerData();
+        if (File.Exists(Application.persistentDataPath + "/" + fileNameCurrent))
+        {
+            //Debug.Log("File with data");
+            sr = new StreamReader(Application.persistentDataPath + "/" + fileNameCurrent);
+            string objStringLoad = sr.ReadToEnd();
+            //Debug.Log(objStringLoad);
+            PlayerDataVO playerVO = JsonUtility.FromJson<PlayerDataVO>(objStringLoad);
+            if (playerVO != null)
+            {
+                
+                populationVO(loadPlayerDataCurrent, playerVO);
+            }
+
+
+            sr.Close();
+        }
+
+        loadPlayerDataCurrent.isBattle = false;
+
+        if (loadPlayerDataCurrent != null)
+        {
+
+            //Debug.Log(Application.persistentDataPath);
+            sw = new StreamWriter(Application.persistentDataPath + "/" + fileNameCurrent, false);
+            loadPlayerDataCurrent.lifePoints = playerData.lifePoints;
+            loadPlayerDataCurrent.energyPoints = playerData.energyPoints;
+            loadPlayerDataCurrent.canPunch = playerData.canPunch;
+            loadPlayerDataCurrent.itmes = playerData.itmes;
+            loadPlayerDataCurrent.counterItems = playerData.counterItems;
+            loadPlayerDataCurrent.isBattle = false;
+
+            string objString = JsonUtility.ToJson(loadPlayerDataCurrent);
+            //Debug.Log(objString);
+            sw.WriteLine(objString);
+            sw.Close();
+
+        }
+
+
+
+       
+    }
+
 }

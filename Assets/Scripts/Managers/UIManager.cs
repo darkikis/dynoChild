@@ -10,10 +10,14 @@ public class UIManager : MonoBehaviour
     public GameObject HUDPanel;
     public GameObject pausePanel;
 
-    public TextMeshProUGUI itemsText;
     public TextMeshProUGUI lifesText;
+    public TextMeshProUGUI energyText;
+    public TextMeshProUGUI itemsText;
     public TextMeshProUGUI currentLevel;
     public Slider sliderLifePoints;
+    public Slider sliderEnergyPoints;
+    public GameObject punchIcon;
+    public GameObject energyIcon;
 
     public PlayerData playerData;
     void Start()
@@ -42,10 +46,24 @@ public class UIManager : MonoBehaviour
 
     public void DrawPlayerStats()
     {
-        itemsText.text = playerData.itmes.ToString();
-
+        //Debug.Log("DrawPlayerStats()");
+        //Debug.Log(playerData.lifes);
         lifesText.text = "x" + playerData.lifes.ToString();
         currentLevel.text = "W-" + playerData.currentLevel;
+        itemsText.text = playerData.itmes.ToString();
+        energyText.text = playerData.energyPoints.ToString();
         sliderLifePoints.value = playerData.lifePoints;
+        sliderEnergyPoints.value = playerData.energyPoints;
+        if (playerData.canPunch)
+        {
+            punchIcon.SetActive(true);
+            energyIcon.SetActive(false);
+
+        }
+        else {
+            punchIcon.SetActive(false);
+            energyIcon.SetActive(true);
+        }
+
     }
 }

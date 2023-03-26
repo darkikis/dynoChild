@@ -131,6 +131,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explotion: {fileID: 3282952944887319247, guid: e49e5a5a6f9db8f4db989bf8013fbcd1, type: 3}
   bulletDecal: {fileID: 8831255640424744209, guid: 77c89c230daeb0f41bf1fa4ad9bf2072, type: 3}
+  playerData: {fileID: 11400000, guid: f1175cb7579a44549a73ccd87a14b55e, type: 2}
+  discountEnergyEvent: {fileID: 11400000, guid: fb26f6dfa0f98c847ab8df522ddba462, type: 2}
 --- !u!136 &8752305977887165816
 CapsuleCollider:
   m_ObjectHideFlags: 0

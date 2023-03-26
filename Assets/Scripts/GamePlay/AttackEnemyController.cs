@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class AttackEnemyController : MonoBehaviour
 {
-    public GameEvent drawUIEvent;
+    public GameEvent receiveDamageEvent;
     public GameEvent saveDataCurrentEvent;
 
     private void OnTriggerEnter(Collider other)
@@ -23,7 +24,7 @@ public class AttackEnemyController : MonoBehaviour
                 enemiCtrl.getEnemyAnimator().SetBool("attack", true);
                 enemiCtrl.getEnemyAnimator().SetFloat("attackF", 1.0f);
                 enemiCtrl.cancelInvoke("GenerateRandomDestination");
-                drawUIEvent.Raise();
+                receiveDamageEvent.Raise();
                 if (enemiCtrl.getBattleEvent() != null)
                 {
                     saveDataCurrentEvent.Raise();
@@ -52,7 +53,15 @@ public class AttackEnemyController : MonoBehaviour
                 enemiCtrl.getEnemyAnimator().SetFloat("attackF", 0.0f);
                 if (enemiCtrl.getPlayerTransform() != null)
                 {
-                    enemiCtrl.getEnemyAgent().SetDestination(enemiCtrl.getPlayerTransform().position);
+                    try
+                    {
+                        enemiCtrl.getEnemyAgent().SetDestination(enemiCtrl.getPlayerTransform().position);
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.Log(e.Message);
+                    }
+                    
                 }
                 else {
                     enemiCtrl.invokeMethodName("GenerateRandomDestination");

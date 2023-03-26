@@ -12,4 +12,6 @@ public class PlayerDataVO
     public int counterItems;
     public Vector3 playerPosition;
     public bool newGame;
+    public int energyPoints;
+    public bool canPunch;
 }

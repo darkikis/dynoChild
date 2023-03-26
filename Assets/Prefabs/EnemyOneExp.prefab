@@ -188,6 +188,8 @@ MonoBehaviour:
   enemySlider: {fileID: 212925528168668238}
   loadCurrentEvent: {fileID: 11400000, guid: acae42f010680d34288fc723d661dda0, type: 2}
   gameManager: {fileID: 0}
+  saveStatsCurrentEvent: {fileID: 11400000, guid: e2d1d79bb25e381469c8c7370c1b268d, type: 2}
+  playerData: {fileID: 11400000, guid: f1175cb7579a44549a73ccd87a14b55e, type: 2}
 --- !u!195 &3223818798853976997
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -269,7 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2cfa2ba30fbb34393ba70f94575ae9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drawUIEvent: {fileID: 11400000, guid: 6ffb3d23df2eb234ca136dfa0d76665c, type: 2}
+  receiveDamageEvent: {fileID: 0}
   saveDataCurrentEvent: {fileID: 11400000, guid: f6c87fe4fdf1d6e469866db589137256, type: 2}
 --- !u!1001 &6424302751124943197
 PrefabInstance:

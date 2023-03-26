@@ -3032,7 +3032,6 @@ MonoBehaviour:
   bullet: {fileID: 7705309000934361996, guid: ef517338387023d46b66bfe194fce3da, type: 3}
   originBullet: {fileID: 7753730144432673583}
   bulletForce: 10
-  maxBullet: 100
 --- !u!1 &8034049959118974338
 GameObject:
   m_ObjectHideFlags: 0
@@ -3464,6 +3463,7 @@ MonoBehaviour:
   dieEvent: {fileID: 11400000, guid: a8c9d8a56887df144b716440c7acc126, type: 2}
   restoreLifePointsEvent: {fileID: 11400000, guid: d656f260a96c3834ea7ccc1d45a2a40c, type: 2}
   respawnEvent: {fileID: 11400000, guid: c0a0221b14529ff4c86d67be8d8ce603, type: 2}
+  drawUIEvent: {fileID: 11400000, guid: 5accf0de562dcb24da8a0cf76719e268, type: 2}
   respawn: {fileID: 0}
   playerData: {fileID: 11400000, guid: f1175cb7579a44549a73ccd87a14b55e, type: 2}
 --- !u!114 &8738560233647451791

@@ -17,5 +17,7 @@ public class PlayerData : ScriptableObject
     public Vector3 playerPosition;
     public bool newGame;
     public bool isBattle;
+    public int energyPoints;
+    public bool canPunch;
 
 }

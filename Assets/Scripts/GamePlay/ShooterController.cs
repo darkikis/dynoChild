@@ -10,7 +10,7 @@ public class ShooterController : MonoBehaviour
 
     public float bulletForce;
 
-    public int maxBullet = 6;
+    private int maxBullet = 0;
 
     private GameObject tmpBullet;
 
@@ -21,12 +21,14 @@ public class ShooterController : MonoBehaviour
     private void Awake()
     {
         playerController = this.transform.parent.GetComponent<PlayerController>();
+        maxBullet = playerController.playerData.energyPoints;
     }
 
     // Update is called once per frame
     void Update()
-    {   
-        if(playerController != null && !playerController.getCanPunch())
+    {
+        maxBullet = playerController.playerData.energyPoints;
+        if (playerController != null && !playerController.getCanPunch())
         {
 
         

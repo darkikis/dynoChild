@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class EnemyController : MonoBehaviour
@@ -29,6 +30,10 @@ public class EnemyController : MonoBehaviour
     public GameEvent loadCurrentEvent;
 
     public GameManager gameManager;
+
+    public GameEvent saveStatsCurrentEvent;
+
+    public PlayerData playerData;
 
     // Start is called before the first frame update
     void Start()
@@ -163,27 +168,41 @@ public class EnemyController : MonoBehaviour
 
     public void setDamage()
     {
-        Debug.Log(this.lifeEnemy);
+        //Debug.Log(this.lifeEnemy);
         this.lifeEnemy = this.lifeEnemy - 5;
         this.enemySlider.value = this.lifeEnemy;
         if (this.lifeEnemy <= 0)
         {
             Destroy(this.gameObject);
-            BattleManager.instance.CountEnemyDefeat();
-            if (gameManager.currentState != GameState.EXPLORE) {
-                if (BattleManager.instance.counterEnemiesDefeat >= BattleManager.instance.counterMaxEnemiesDefeat)
+            if (BattleManager.instance != null) {
+                BattleManager.instance.CountEnemyDefeat();
+                Debug.Log(SceneManager.GetActiveScene().name.ToUpper());
+                
+                
+                if (SceneManager.GetActiveScene().name.ToUpper().Contains("BATTLE"))
+                  
                 {
-                    loadCurrentEvent.Raise();
+                    Debug.Log(SceneManager.GetActiveScene().name);
 
+
+
+                    if (BattleManager.instance.counterEnemiesDefeat >= BattleManager.instance.counterMaxEnemiesDefeat)
+                    {
+                        
+                        loadCurrentEvent.Raise();
+                        
+
+                    }
                 }
             }
+            
             
         }
     }
 
     public void setDamageByExplosion()
     {
-        Debug.Log(this.lifeEnemy);
+        //Debug.Log(this.lifeEnemy);
         this.lifeEnemy = this.lifeEnemy - 20;
         this.enemySlider.value = this.lifeEnemy;
         if (this.lifeEnemy <= 0)

@@ -11,7 +11,7 @@ public class SpawnBattleManager : MonoBehaviour
     public int startSpawnTime = 10;
     public int spawnTime = 5;
     public int spawPointLength;
-    public int maxEnemies = 1;
+    public int maxItems = 1;
 
     private int counterEnemies = 0;
     
@@ -26,7 +26,7 @@ public class SpawnBattleManager : MonoBehaviour
 
     void Spawn()
     {
-        if (counterEnemies < maxEnemies)
+        if (counterEnemies < maxItems)
         {
             counterEnemies++;
             int spawnPoints = Random.Range(0, spawPointLength);

@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f9435fef1372184bbd14fa830cd1b83, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  lifes: 13
+  lifes: 12
   itmes: 0
   currentLevel: 1
-  lifePoints: 35
+  lifePoints: 99
   sceneName: Level1-1
   counterEnemies: 0
   counterItems: 0
-  playerPosition: {x: 3.8304346, y: 3.4583294, z: 7.600235}
+  playerPosition: {x: -7.447336, y: 4.458328, z: 0.23105267}
   newGame: 0
+  isBattle: 0
+  energyPoints: 46
+  canPunch: 0

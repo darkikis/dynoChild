@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     public GameEvent dieEvent;
     public GameEvent restoreLifePointsEvent;
     public GameEvent respawnEvent;
+    public GameEvent drawUIEvent;
     public Transform respawn;
     public PlayerData playerData;
     
@@ -45,6 +46,8 @@ public class PlayerController : MonoBehaviour
         else {
             respawnEvent.Raise();
         }
+        canPunch = playerData.canPunch;
+        drawUIEvent.Raise();
         
     }
 
@@ -92,11 +95,14 @@ public class PlayerController : MonoBehaviour
         else if(!canPunch && Input.GetKeyDown(KeyCode.Mouse0))
         {
             playerAnimator.SetTrigger("fire");
+            drawUIEvent.Raise();
         }
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
             canPunch = !(canPunch);
+            playerData.canPunch = canPunch;
+            drawUIEvent.Raise();
             //playerAnimator.SetTrigger("punch");
             //counterAnimationAttack = 0;
         }

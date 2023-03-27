@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   lifes: 11
-  itmes: 0
+  itmes: 24
   currentLevel: 1
-  lifePoints: 45
+  lifePoints: 25
   sceneName: Level1-1
   counterEnemies: 0
   counterItems: 0
-  playerPosition: {x: 4.3302345, y: 3.4583282, z: 8.736526}
+  playerPosition: {x: -8.2400465, y: 4.2777276, z: 9.506906}
   newGame: 0
-  isBattle: 0
-  energyPoints: 19
+  isBattle: 1
+  energyPoints: 30
   canPunch: 0

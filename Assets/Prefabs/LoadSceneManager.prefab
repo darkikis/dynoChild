@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4405598166644600799}
   - component: {fileID: 4405598166644600798}
   - component: {fileID: 4405598166644600793}
+  - component: {fileID: 609144258939929922}
   m_Layer: 0
   m_Name: LoadSceneManager
   m_TagString: Untagged
@@ -47,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stopMusicEvent: {fileID: 11400000, guid: f08cbbe943b4b7a4d81b9a1ff3b13bc2, type: 2}
+  setNewGameEvent: {fileID: 0}
 --- !u!114 &4405598166644600798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,6 +96,34 @@ MonoBehaviour:
       - m_Target: {fileID: 4405598166644600799}
         m_TargetAssemblyTypeName: LoaderSceneManager, Assembly-CSharp
         m_MethodName: LoadBattle1_1Scene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &609144258939929922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4405598166644600797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcdff1f3b2e97a148a18e4dd92d537cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: c4fb26db44e9bb442b09576258f111ea, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4405598166644600799}
+        m_TargetAssemblyTypeName: LoaderSceneManager, Assembly-CSharp
+        m_MethodName: HomeLoadScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -35,6 +35,9 @@ public class EnemyController : MonoBehaviour
 
     public PlayerData playerData;
 
+    private AudioSource audioSourceAttack;
+    private AudioSource audioSourceDie;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -66,6 +69,22 @@ public class EnemyController : MonoBehaviour
     private void Awake()
     {
         transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
+
+        GameObject audioAttack = this.transform.Find("AudioAttack").gameObject;
+
+        if (audioAttack != null)
+        {
+            audioSourceAttack = audioAttack.GetComponent<AudioSource>();
+
+        }
+
+        GameObject audioDie = this.transform.Find("AudioDie").gameObject;
+
+        if (audioDie != null)
+        {
+            audioSourceDie = audioDie.GetComponent<AudioSource>();
+
+        }
     }
 
     private void UpdateState()
@@ -173,7 +192,8 @@ public class EnemyController : MonoBehaviour
         this.enemySlider.value = this.lifeEnemy;
         if (this.lifeEnemy <= 0)
         {
-            Destroy(this.gameObject);
+            this.audioSourceDie.Play();
+            Destroy(this.gameObject,0.5f);
             if (BattleManager.instance != null) {
                 BattleManager.instance.CountEnemyDefeat();
                 Debug.Log(SceneManager.GetActiveScene().name.ToUpper());
@@ -223,6 +243,15 @@ public class EnemyController : MonoBehaviour
 
     public GameEvent getBattleEvent() {
         return this.battleScenceEvent;
+    }
+
+    public AudioSource getAttackAudioSource() {
+        return this.audioSourceAttack;
+    }
+
+    public AudioSource getDieAudioSource()
+    {
+        return this.audioSourceDie;
     }
 }
 

@@ -16,7 +16,10 @@ public class PlayerController : MonoBehaviour
     private Transform objectToPunch;
 
     private bool canPunch = true;
-
+    private AudioSource audioSourceStep;
+    private AudioSource audioSourceKickPunch;
+    private bool isMoving;
+    private ShooterController shooterController;
     
     public CapsuleCollider playerCollider;
     public Transform objectToGrab;
@@ -28,7 +31,9 @@ public class PlayerController : MonoBehaviour
     public GameEvent drawUIEvent;
     public Transform respawn;
     public PlayerData playerData;
-    
+    public GameEvent discountEnergyEvent;
+
+
 
     void Start()
     {
@@ -49,6 +54,28 @@ public class PlayerController : MonoBehaviour
         canPunch = playerData.canPunch;
         drawUIEvent.Raise();
         
+        GameObject audioStep = this.transform.Find("AudioStep").gameObject; 
+        
+        
+        if (audioStep != null)
+        {
+            audioSourceStep = audioStep.GetComponent<AudioSource>();
+            
+        }
+
+        GameObject audioAttack = this.transform.Find("AudioAttack").gameObject;
+
+        if (audioAttack != null)
+        {
+            audioSourceKickPunch = audioAttack.GetComponent<AudioSource>();
+            
+        }
+
+        GameObject shooterGO = this.transform.Find("Shooter").gameObject;
+        if (shooterGO != null) {
+            shooterController = shooterGO.GetComponent<ShooterController>();
+        }
+
     }
 
     void Update()
@@ -56,6 +83,10 @@ public class PlayerController : MonoBehaviour
         animatorState = playerAnimator.GetCurrentAnimatorStateInfo(0);
         
         playerAnimator.SetFloat("speed", Input.GetAxis("Vertical"));
+
+
+        PlaySoundSteps();
+
         playerAnimator.SetFloat("direction", Input.GetAxis("Horizontal"));
 
         if (Input.GetKeyDown(KeyCode.Space) && (animatorState.IsName("LocomotionRun") || animatorState.IsName("Idle"))) {
@@ -81,21 +112,34 @@ public class PlayerController : MonoBehaviour
         {
             playerAnimator.SetTrigger("punch");
 
-            if (objectToPunch != null) {
+            if (objectToPunch != null)
+            {
                 Vector3 ver = new Vector3(objectToPunch.position.x, this.transform.position.y, objectToPunch.position.z);
                 transform.LookAt(ver);
 
-                if (currentEnemy != null) {
+                if (currentEnemy != null)
+                {
                     currentEnemy.setDamage();
+
                 }
             }
 
             //counterAnimationAttack = 0;
+            PlaySoundAttack(true);
+
         }
-        else if(!canPunch && Input.GetKeyDown(KeyCode.Mouse0))
+        else if (!canPunch && Input.GetKeyUp(KeyCode.Mouse0))
         {
             playerAnimator.SetTrigger("fire");
-            drawUIEvent.Raise();
+            
+            if (shooterController != null) {
+                shooterController.Fire(playerData.energyPoints);
+                discountEnergyEvent.Raise();
+            }
+            
+        }
+        else {
+            PlaySoundAttack(false);
         }
 
         if (Input.GetKeyDown(KeyCode.Q))
@@ -147,37 +191,14 @@ public class PlayerController : MonoBehaviour
             playerAnimator.SetLookAtWeight(1);
             playerAnimator.SetLookAtPosition(objectToPunch.position);
 
-            //playerAnimator.bodyRotation = objectToPunch.rotation;
-
+            
             //mano
             playerAnimator.SetIKPositionWeight(AvatarIKGoal.RightHand, 1);
             playerAnimator.SetIKRotationWeight(AvatarIKGoal.RightHand, 1);
             playerAnimator.SetIKPosition(AvatarIKGoal.RightHand, objectToPunch.position);
             playerAnimator.SetIKRotation(AvatarIKGoal.RightHand, objectToPunch.rotation);
 
-            /*
-            playerAnimator.SetIKPositionWeight(AvatarIKGoal.LeftFoot, 1);
-            playerAnimator.SetIKRotationWeight(AvatarIKGoal.LeftFoot, 1);
-            //playerAnimator.SetIKPosition(AvatarIKGoal.LeftFoot, objectToPunch.position);
-            playerAnimator.SetIKRotation(AvatarIKGoal.LeftFoot, objectToPunch.rotation);
-
-            playerAnimator.SetIKPositionWeight(AvatarIKGoal.RightFoot, 1);
-            playerAnimator.SetIKRotationWeight(AvatarIKGoal.RightFoot, 1);
-            //playerAnimator.SetIKPosition(AvatarIKGoal.RightFoot, objectToPunch.position);
-            playerAnimator.SetIKRotation(AvatarIKGoal.RightFoot, objectToPunch.rotation);
-            */
-            /*
-            if(enemyActive != null){
-                Debug.Log("lifeEnemy:" + enemyActive.imgVida.fillAmount);
-
-                if (couterAnimationAttack == 0) {
-                    enemyActive.setValueLife();
-                    couterAnimationAttack += 1;
-                }
-                
-                Debug.Log("lifeEnemy:" + enemyActive.imgVida.fillAmount);
-            }
-            */
+            
         }
         else {
             //cabeza
@@ -193,11 +214,12 @@ public class PlayerController : MonoBehaviour
     {
         if (other.transform.CompareTag("Enemy"))
         {
-            //Debug.Log("IF OnTriggerEnter:" + other.transform.tag);
-            //this.objectToPunch = other.transform.FindChild("HeadEnemy").transform;
             this.objectToPunch = other.transform;
             this.currentEnemy = other.transform.parent.GetComponent<EnemyController>();
 
+            Vector3 ver = new Vector3(objectToPunch.position.x, this.transform.position.y, objectToPunch.position.z);
+            transform.LookAt(ver);
+            
 
 
         }
@@ -215,9 +237,6 @@ public class PlayerController : MonoBehaviour
         if (other.transform.CompareTag("Enemy"))
         {
             
-            //Debug.Log("ThirdPersonController.OnTriggerExit Collider:");
-
-            
             this.objectToPunch = null;
             this.currentEnemy = null;
 
@@ -232,5 +251,36 @@ public class PlayerController : MonoBehaviour
         return this.canPunch;
     }
 
-    
+    private void PlaySoundSteps() {
+        if (Input.GetAxis("Vertical") > 0)
+            isMoving = true; // better use != 0 here for both directions
+        else
+            isMoving = false;
+        if (isMoving && !audioSourceStep.isPlaying)
+        {
+            audioSourceStep.Play();
+        }
+
+        if (!isMoving)
+        {
+            audioSourceStep.Stop();
+        }
+    }
+
+
+    private void PlaySoundAttack(bool isPunch)
+    {
+        
+        if (isPunch && !audioSourceKickPunch.isPlaying)
+        {
+            audioSourceKickPunch.Play();
+        }
+
+        if (!isPunch)
+        {
+            audioSourceKickPunch.Stop();
+        }
+    }
+
+
 }

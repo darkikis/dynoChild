@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8746296675212717351
+--- !u!1 &4621312691189863406
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,17 +8,18 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8746296675212717349}
-  - component: {fileID: 8746296675212717350}
-  - component: {fileID: 8746296673840367958}
-  - component: {fileID: 8746296673840367956}
-  - component: {fileID: 8746296673840367955}
-  - component: {fileID: 7910439782114947296}
-  - component: {fileID: 7910439782114947327}
-  - component: {fileID: 9155901268547251515}
-  - component: {fileID: 386253091946097501}
-  - component: {fileID: 3185010189227451540}
-  - component: {fileID: 7229022100816109512}
+  - component: {fileID: 4621312691189863404}
+  - component: {fileID: 4621312691189863407}
+  - component: {fileID: 4621312690348111775}
+  - component: {fileID: 4621312690348111773}
+  - component: {fileID: 4621312690348111770}
+  - component: {fileID: 6090170743273803305}
+  - component: {fileID: 6090170743273803318}
+  - component: {fileID: 5067515662920127474}
+  - component: {fileID: 4332210160325645716}
+  - component: {fileID: 1544814869809551965}
+  - component: {fileID: 6706282438408806657}
+  - component: {fileID: 7784951714764072477}
   m_Layer: 0
   m_Name: DataManagment
   m_TagString: Untagged
@@ -26,13 +27,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8746296675212717349
+--- !u!4 &4621312691189863404
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8746296675212717351}
+  m_GameObject: {fileID: 4621312691189863406}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -41,13 +42,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8746296675212717350
+--- !u!114 &4621312691189863407
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8746296675212717351}
+  m_GameObject: {fileID: 4621312691189863406}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 85203a6206cf5cc48b170ac2caafec8a, type: 3}
@@ -59,13 +60,13 @@ MonoBehaviour:
   respawnPlayerEvent: {fileID: 11400000, guid: c0a0221b14529ff4c86d67be8d8ce603, type: 2}
   fileName: dataGame.json
   fileNameCurrent: currentData.json
---- !u!114 &8746296673840367958
+--- !u!114 &4621312690348111775
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8746296675212717351}
+  m_GameObject: {fileID: 4621312691189863406}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dcdff1f3b2e97a148a18e4dd92d537cf, type: 3}
@@ -75,7 +76,7 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8746296675212717350}
+      - m_Target: {fileID: 4621312691189863407}
         m_TargetAssemblyTypeName: DataManagment, Assembly-CSharp
         m_MethodName: Die
         m_Mode: 1
@@ -87,13 +88,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8746296673840367956
+--- !u!114 &4621312690348111773
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8746296675212717351}
+  m_GameObject: {fileID: 4621312691189863406}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dcdff1f3b2e97a148a18e4dd92d537cf, type: 3}
@@ -103,7 +104,7 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8746296675212717350}
+      - m_Target: {fileID: 4621312691189863407}
         m_TargetAssemblyTypeName: DataManagment, Assembly-CSharp
         m_MethodName: RecieveDamage
         m_Mode: 1
@@ -115,13 +116,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8746296673840367955
+--- !u!114 &4621312690348111770
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8746296675212717351}
+  m_GameObject: {fileID: 4621312691189863406}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dcdff1f3b2e97a148a18e4dd92d537cf, type: 3}
@@ -131,7 +132,7 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8746296675212717350}
+      - m_Target: {fileID: 4621312691189863407}
         m_TargetAssemblyTypeName: DataManagment, Assembly-CSharp
         m_MethodName: RestoreLifePoints
         m_Mode: 1
@@ -143,13 +144,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7910439782114947296
+--- !u!114 &6090170743273803305
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8746296675212717351}
+  m_GameObject: {fileID: 4621312691189863406}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dcdff1f3b2e97a148a18e4dd92d537cf, type: 3}
@@ -159,7 +160,7 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8746296675212717350}
+      - m_Target: {fileID: 4621312691189863407}
         m_TargetAssemblyTypeName: DataManagment, Assembly-CSharp
         m_MethodName: LoadDataCurrent
         m_Mode: 1
@@ -171,13 +172,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7910439782114947327
+--- !u!114 &6090170743273803318
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8746296675212717351}
+  m_GameObject: {fileID: 4621312691189863406}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dcdff1f3b2e97a148a18e4dd92d537cf, type: 3}
@@ -187,7 +188,7 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8746296675212717350}
+      - m_Target: {fileID: 4621312691189863407}
         m_TargetAssemblyTypeName: DataManagment, Assembly-CSharp
         m_MethodName: SaveDataCurrent
         m_Mode: 1
@@ -199,13 +200,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &9155901268547251515
+--- !u!114 &5067515662920127474
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8746296675212717351}
+  m_GameObject: {fileID: 4621312691189863406}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dcdff1f3b2e97a148a18e4dd92d537cf, type: 3}
@@ -215,7 +216,7 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8746296675212717350}
+      - m_Target: {fileID: 4621312691189863407}
         m_TargetAssemblyTypeName: DataManagment, Assembly-CSharp
         m_MethodName: SetNewGame
         m_Mode: 1
@@ -227,13 +228,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &386253091946097501
+--- !u!114 &4332210160325645716
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8746296675212717351}
+  m_GameObject: {fileID: 4621312691189863406}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dcdff1f3b2e97a148a18e4dd92d537cf, type: 3}
@@ -243,7 +244,7 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8746296675212717350}
+      - m_Target: {fileID: 4621312691189863407}
         m_TargetAssemblyTypeName: DataManagment, Assembly-CSharp
         m_MethodName: DiscountEnergy
         m_Mode: 1
@@ -255,13 +256,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3185010189227451540
+--- !u!114 &1544814869809551965
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8746296675212717351}
+  m_GameObject: {fileID: 4621312691189863406}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dcdff1f3b2e97a148a18e4dd92d537cf, type: 3}
@@ -271,7 +272,7 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8746296675212717350}
+      - m_Target: {fileID: 4621312691189863407}
         m_TargetAssemblyTypeName: DataManagment, Assembly-CSharp
         m_MethodName: SaveStatsCurrent
         m_Mode: 1
@@ -283,13 +284,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7229022100816109512
+--- !u!114 &6706282438408806657
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8746296675212717351}
+  m_GameObject: {fileID: 4621312691189863406}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dcdff1f3b2e97a148a18e4dd92d537cf, type: 3}
@@ -299,9 +300,37 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8746296675212717350}
+      - m_Target: {fileID: 4621312691189863407}
         m_TargetAssemblyTypeName: DataManagment, Assembly-CSharp
         m_MethodName: UpdateEnergy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7784951714764072477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4621312691189863406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcdff1f3b2e97a148a18e4dd92d537cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 86b272b72410df846853329a09cd9ee3, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4621312691189863407}
+        m_TargetAssemblyTypeName: DataManagment, Assembly-CSharp
+        m_MethodName: TakeItem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

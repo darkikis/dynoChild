@@ -129,6 +129,7 @@ public class DataManagment : MonoBehaviour
     }
 
     public void DiscountEnergy() {
+        Debug.Log(playerData.energyPoints);
         playerData.energyPoints--;
         if (playerData.energyPoints < 0) {
             playerData.energyPoints = 0;

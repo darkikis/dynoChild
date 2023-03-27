@@ -6,37 +6,38 @@ public class BulletController : MonoBehaviour
 {
     public GameObject explotion;
 
-    public GameObject bulletDecal;
-
     public PlayerData playerData;
 
-    public GameEvent discountEnergyEvent;
-
-    private IEnumerator coroutine;
-
-
-
+    
+    private AudioSource audioSourceImpact;
     private float timeToWaitForDestroy = 35.0f;
+
+    private void Awake()
+    {
+        GameObject audioGOImpact = this.transform.Find("AudioImpact").gameObject;
+
+        if (audioGOImpact != null)
+        {
+            audioSourceImpact = audioGOImpact.GetComponent<AudioSource>();
+            
+        }
+    }
+
+    
     private void OnCollisionEnter(Collision collision)
     {
         
-        //informacion de 
+        
         GameObject exp = Instantiate(explotion, collision.contacts[0].point, Quaternion.identity);
-        Vector3 startPos = collision.contacts[0].point;
-        Vector3 addV = collision.contacts[0].normal * 0.01f;
-        Quaternion startRot = Quaternion.LookRotation(addV *-1);
-
-        //coroutine = DestroyVFX(timeToWaitForDestroy,exp);
-        //StartCoroutine(coroutine);
-
-        //Instantiate(bulletDecal, startPos + addV, startRot);
-
+        if (!audioSourceImpact.isPlaying) {
+            audioSourceImpact.Play();
+        }
+        
         Destroy(exp, exp.GetComponent<ParticleSystem>().main.duration* timeToWaitForDestroy);
-        Destroy(this.gameObject);
-        discountEnergyEvent.Raise();
+        
+        Destroy(this.gameObject, 1.0f);
 
-        //Debug.Log("::::" + collision.);
-
+        
     }
 
     private void OnTriggerEnter(Collider other)

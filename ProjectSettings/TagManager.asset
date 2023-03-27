@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fall
   - Enemy
+  - Shooter
   layers:
   - Default
   - TransparentFX

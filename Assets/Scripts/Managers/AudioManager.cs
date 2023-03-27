@@ -8,10 +8,20 @@ public class AudioManager : MonoBehaviour
 
     private AudioSource audioSource;
 
+    private AudioSource audioSourceAmbient;
 
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
+
+        GameObject audioAmbient = this.transform.Find("AudioAmbient").gameObject;
+
+        GameObject audioAmbientGO = GameObject.Find("AudioAmbient");
+        if (audioAmbientGO != null)
+        {
+            audioSourceAmbient = audioAmbientGO.GetComponent<AudioSource>();
+            audioSourceAmbient.Play();
+        }
     }
 
     public void PlayDamage()
@@ -33,7 +43,7 @@ public class AudioManager : MonoBehaviour
     {
         try
         {
-            audioSource.PlayOneShot(listAudio[0]);
+            audioSource.PlayOneShot(listAudio[AudioNames.START]);
         }
         catch (UnityException e)
         {
@@ -55,10 +65,60 @@ public class AudioManager : MonoBehaviour
 
     public void PlayInitGame() {
         Debug.Log("PlayIntro");
-        audioSource.PlayOneShot(listAudio[1]);
+        audioSource.PlayOneShot(listAudio[AudioNames.INTRO]);
     }
 
     public void StopMusic() {
         audioSource.Stop();
     }
+
+    public void PlayStep()
+    {
+        audioSource.PlayOneShot(listAudio[AudioNames.STEP]);
+        
+        //audioSource.Stop();
+        //audioSource.loop = true;
+        audioSource.clip = listAudio[AudioNames.STEP];
+        audioSource.volume = 0.8f;
+        if (!audioSource.isPlaying) {
+            audioSource.Play();
+        }
+        
+        
+    }
+
+    public void StopStep()
+    {   
+        //AudioClip listAudio[AudioNames.STEP].s
+        //audioSource.PlayOneShot();
+        /*
+        audioSource.Stop();
+        audioSource.loop = true;
+        audioSource.clip = listAudio[AudioNames.STEP];
+        audioSource.volume = 0.8f;
+        audioSource.Play();
+        */
+    }
+
+    public void PlayTakeEnergy() {
+        audioSource.PlayOneShot(listAudio[AudioNames.TAKE_ENERGY]);
+    }
+
+    public void PlayPause()
+    {
+        audioSource.PlayOneShot(listAudio[AudioNames.PAUSE]);
+    }
+
+    public void PlayContinue()
+    {
+        audioSource.PlayOneShot(listAudio[AudioNames.CONTINUE]);
+    }
+
+
+    public void PlayDamagePlayer()
+    {
+        audioSource.PlayOneShot(listAudio[AudioNames.RECEIVE_DAMAGE_PLAYER]);
+    }
+
 }
+

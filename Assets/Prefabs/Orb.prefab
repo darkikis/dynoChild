@@ -147,6 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   updateEnergyEvent: {fileID: 11400000, guid: 4fc3beca22a72be46a84389609cecca2, type: 2}
   updateCountItems: {fileID: 11400000, guid: 86b272b72410df846853329a09cd9ee3, type: 2}
+  takeEnergyPlayEvent: {fileID: 11400000, guid: d78ba662c3c5cc84e815f8f252cff622, type: 2}
 --- !u!1 &697281460403052177
 GameObject:
   m_ObjectHideFlags: 0

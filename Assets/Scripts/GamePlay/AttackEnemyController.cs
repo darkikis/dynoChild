@@ -7,6 +7,7 @@ public class AttackEnemyController : MonoBehaviour
 {
     public GameEvent receiveDamageEvent;
     public GameEvent saveDataCurrentEvent;
+    public GameEvent receiveDamagePlayEvent;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -24,7 +25,9 @@ public class AttackEnemyController : MonoBehaviour
                 enemiCtrl.getEnemyAnimator().SetBool("attack", true);
                 enemiCtrl.getEnemyAnimator().SetFloat("attackF", 1.0f);
                 enemiCtrl.cancelInvoke("GenerateRandomDestination");
+                enemiCtrl.getAttackAudioSource().Play();
                 receiveDamageEvent.Raise();
+                receiveDamagePlayEvent.Raise();
                 if (enemiCtrl.getBattleEvent() != null)
                 {
                     saveDataCurrentEvent.Raise();

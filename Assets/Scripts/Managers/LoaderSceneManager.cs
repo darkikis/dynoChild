@@ -41,4 +41,13 @@ public class LoaderSceneManager : MonoBehaviour
         
 
     }
+
+    public void HomeLoadScene()
+    {
+        stopMusicEvent.Raise();
+        //setNewGameEvent.Raise();
+        SceneManager.LoadScene(LoadSceneNames.MAIN_SCENE, LoadSceneMode.Single);
+
+
+    }
 }

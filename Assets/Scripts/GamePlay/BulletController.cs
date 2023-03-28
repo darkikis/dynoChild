@@ -49,9 +49,15 @@ public class BulletController : MonoBehaviour
 
 
             EnemyController currentEnemy = other.transform.parent.GetComponent<EnemyController>();
-            currentEnemy.setDamageByExplosion();
+            if (currentEnemy != null) {
+                currentEnemy.setDamageByExplosion();
+            }
 
-
+            EnemyTwoController currentEnemyTwo = other.transform.parent.GetComponent<EnemyTwoController>();
+            if (currentEnemyTwo != null)
+            {
+                currentEnemyTwo.setDamageByExplosion();
+            }
 
         }
 

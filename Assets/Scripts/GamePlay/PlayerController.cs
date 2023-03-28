@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private AnimatorStateInfo animatorStateAttack;
 
     EnemyController currentEnemy;
+    EnemyTwoController currentEnemyTwo;
 
     private Transform objectToPunch;
 
@@ -32,6 +33,7 @@ public class PlayerController : MonoBehaviour
     public Transform respawn;
     public PlayerData playerData;
     public GameEvent discountEnergyEvent;
+    public GameEvent pauseEvent;
 
 
 
@@ -122,6 +124,9 @@ public class PlayerController : MonoBehaviour
                     currentEnemy.setDamage();
 
                 }
+                if (currentEnemyTwo != null) {
+                    currentEnemyTwo.setDamage();
+                }
             }
 
             //counterAnimationAttack = 0;
@@ -156,6 +161,10 @@ public class PlayerController : MonoBehaviour
 
             playerAnimator.SetTrigger("dive");
             
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            pauseEvent.Raise();
         }
 
     }
@@ -217,9 +226,11 @@ public class PlayerController : MonoBehaviour
             this.objectToPunch = other.transform;
             this.currentEnemy = other.transform.parent.GetComponent<EnemyController>();
 
-            Vector3 ver = new Vector3(objectToPunch.position.x, this.transform.position.y, objectToPunch.position.z);
-            transform.LookAt(ver);
-            
+            this.currentEnemyTwo = other.transform.parent.GetComponent<EnemyTwoController>();
+            Debug.Log(currentEnemyTwo);
+            //Vector3 ver = new Vector3(objectToPunch.position.x, this.transform.position.y, objectToPunch.position.z);
+            //transform.LookAt(ver);
+
 
 
         }
@@ -239,6 +250,7 @@ public class PlayerController : MonoBehaviour
             
             this.objectToPunch = null;
             this.currentEnemy = null;
+            this.currentEnemyTwo = null;
 
         }
     }

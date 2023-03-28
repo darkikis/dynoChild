@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 5208005027854767743}
   - component: {fileID: 5208005027854767736}
   - component: {fileID: 5208005027854767737}
+  - component: {fileID: 3895030581589749784}
+  - component: {fileID: -365150765142230356}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -49,10 +51,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HUDPanel: {fileID: 0}
   pausePanel: {fileID: 0}
-  itemsText: {fileID: 0}
+  exitPanel: {fileID: 0}
+  continueExpPanel: {fileID: 0}
   lifesText: {fileID: 0}
+  energyText: {fileID: 0}
+  itemsText: {fileID: 0}
   currentLevel: {fileID: 0}
   sliderLifePoints: {fileID: 0}
+  sliderEnergyPoints: {fileID: 0}
+  punchIcon: {fileID: 0}
+  energyIcon: {fileID: 0}
   playerData: {fileID: 11400000, guid: f1175cb7579a44549a73ccd87a14b55e, type: 2}
 --- !u!114 &5208005027854767743
 MonoBehaviour:
@@ -129,6 +137,62 @@ MonoBehaviour:
       - m_Target: {fileID: 5208005027854767738}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: DrawPlayerStats
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3895030581589749784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5208005027854767732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcdff1f3b2e97a148a18e4dd92d537cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 396dfdae08662334ea7be8974ed2e092, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5208005027854767738}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: ShowExitPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &-365150765142230356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5208005027854767732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcdff1f3b2e97a148a18e4dd92d537cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: d2729ddbfe202114a995a8f991e4ce61, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5208005027854767738}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: ShowContinueExpPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

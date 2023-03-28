@@ -5,16 +5,18 @@ using UnityEngine;
 public class CanvasEnemyController : MonoBehaviour
 {
     // Start is called before the first frame update
-    Camera camera;
+    private Camera cameraInScene;
     void Start()
     {
-        camera = Camera.main;
+        cameraInScene = Camera.main;
     }
 
     // Update is called once per frame
     void Update()
     {
         
-        transform.LookAt(transform.position + camera.transform.rotation * Vector3.forward, camera.transform.rotation * Vector3.up);
+        transform.LookAt(transform.position + cameraInScene.transform.rotation * Vector3.forward, cameraInScene.transform.rotation * Vector3.up);
+
+        transform.forward = Camera.main.transform.forward;
     }
 }

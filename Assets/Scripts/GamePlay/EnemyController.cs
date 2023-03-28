@@ -68,7 +68,7 @@ public class EnemyController : MonoBehaviour
 
     private void Awake()
     {
-        transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
+        //transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
 
         GameObject audioAttack = this.transform.Find("AudioAttack").gameObject;
 

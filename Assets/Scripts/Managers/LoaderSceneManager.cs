@@ -50,4 +50,13 @@ public class LoaderSceneManager : MonoBehaviour
 
 
     }
+
+    public void LoadLevel1_2Scene()
+    {
+
+        SceneManager.LoadScene(LoadSceneNames.LEVEL1_2_SCENE, LoadSceneMode.Single);
+        stopMusicEvent.Raise();
+        setNewGameEvent.Raise();
+
+    }
 }

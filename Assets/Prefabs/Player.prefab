@@ -3804,6 +3804,7 @@ MonoBehaviour:
   respawn: {fileID: 0}
   playerData: {fileID: 11400000, guid: f1175cb7579a44549a73ccd87a14b55e, type: 2}
   discountEnergyEvent: {fileID: 11400000, guid: fb26f6dfa0f98c847ab8df522ddba462, type: 2}
+  pauseEvent: {fileID: 11400000, guid: 0b967ae4351296e4ab78b466af22fad7, type: 2}
 --- !u!95 &2868062094361416316
 Animator:
   serializedVersion: 5

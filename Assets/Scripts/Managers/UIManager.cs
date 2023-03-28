@@ -9,6 +9,8 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     public GameObject HUDPanel;
     public GameObject pausePanel;
+    public GameObject exitPanel;
+    public GameObject continueExpPanel;
 
     public TextMeshProUGUI lifesText;
     public TextMeshProUGUI energyText;
@@ -30,6 +32,14 @@ public class UIManager : MonoBehaviour
     {
         HUDPanel.SetActive(false);
         pausePanel.SetActive(false);
+        if (exitPanel != null) {
+            exitPanel.SetActive(false);
+        }
+        if (continueExpPanel != null)
+        {
+            continueExpPanel.SetActive(false);
+        }
+
     }
 
     public void showHUD()
@@ -65,5 +75,21 @@ public class UIManager : MonoBehaviour
             energyIcon.SetActive(true);
         }
 
+    }
+
+    public void ShowExitPanel() {
+        if (this.exitPanel != null) {
+            CleanPanel();
+            this.exitPanel.SetActive(true);
+        }
+    }
+
+    public void ShowContinueExpPanel()
+    {
+        if (this.continueExpPanel != null)
+        {
+            CleanPanel();
+            this.continueExpPanel.SetActive(true);
+        }
     }
 }

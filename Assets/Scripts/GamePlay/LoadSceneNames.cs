@@ -8,6 +8,7 @@ public static class LoadSceneNames
     public static string MAIN_SCENE {get { return "MainScene"; } }
     public static string LEVEL1_1_SCENE { get { return "Level1-1"; } }
     public static string BATTLE1_1_SCENE { get { return "Battle1-1"; } }
-    
-    
+    public static string LEVEL1_2_SCENE { get { return "Level1-2"; } }
+
+
 }

@@ -5,8 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class LoaderSceneManager : MonoBehaviour
 {
+    public PlayerData playerData;
     public GameEvent stopMusicEvent;
     public GameEvent setNewGameEvent;
+
+
     public void LoadLevel1_1Scene()
     {
         
@@ -58,5 +61,26 @@ public class LoaderSceneManager : MonoBehaviour
         stopMusicEvent.Raise();
         setNewGameEvent.Raise();
 
+    }
+
+    public void LoadLevel1_3Scene()
+    {
+
+        SceneManager.LoadScene(LoadSceneNames.LEVEL1_3_SCENE, LoadSceneMode.Single);
+        stopMusicEvent.Raise();
+        setNewGameEvent.Raise();
+
+    }
+
+    public void LoadBattle1_2Scene()
+    {
+        SceneManager.LoadScene(LoadSceneNames.BATTLE1_2_SCENE, LoadSceneMode.Single);
+        stopMusicEvent.Raise();
+    }
+
+    public void LoadBattle1_3Scene()
+    {
+        SceneManager.LoadScene(LoadSceneNames.BATTLE1_3_SCENE, LoadSceneMode.Single);
+        stopMusicEvent.Raise();
     }
 }

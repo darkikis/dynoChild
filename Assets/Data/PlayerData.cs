@@ -19,5 +19,7 @@ public class PlayerData : ScriptableObject
     public bool isBattle;
     public int energyPoints;
     public bool canPunch;
+    public bool isReturn;
+    public bool isContinue;
 
 }

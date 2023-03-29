@@ -6,7 +6,7 @@ public class BattleManager : MonoBehaviour
 {
     public static BattleManager instance;
 
-    public int counterMaxEnemiesDefeat = 1;
+    public int counterMaxEnemiesDefeat = 5;
 
     public int counterEnemiesDefeat = 0;
 

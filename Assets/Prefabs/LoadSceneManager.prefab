@@ -14,6 +14,10 @@ GameObject:
   - component: {fileID: 4405598166644600793}
   - component: {fileID: 609144258939929922}
   - component: {fileID: 7167304953763751610}
+  - component: {fileID: 7724440754618899778}
+  - component: {fileID: 3582057790392541594}
+  - component: {fileID: 8978230054909498010}
+  - component: {fileID: 1298316112704652177}
   m_Layer: 0
   m_Name: LoadSceneManager
   m_TagString: Untagged
@@ -48,6 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f668c998b32ef1d4c897c4257634f7e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: f1175cb7579a44549a73ccd87a14b55e, type: 2}
   stopMusicEvent: {fileID: 11400000, guid: f08cbbe943b4b7a4d81b9a1ff3b13bc2, type: 2}
   setNewGameEvent: {fileID: 0}
 --- !u!114 &4405598166644600798
@@ -153,6 +158,118 @@ MonoBehaviour:
       - m_Target: {fileID: 4405598166644600799}
         m_TargetAssemblyTypeName: LoaderSceneManager, Assembly-CSharp
         m_MethodName: LoadLevel1_2Scene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7724440754618899778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4405598166644600797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcdff1f3b2e97a148a18e4dd92d537cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: dc604d5c923720b4fb24a87e289a8bd5, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4405598166644600799}
+        m_TargetAssemblyTypeName: LoaderSceneManager, Assembly-CSharp
+        m_MethodName: LoadLevel1_1Scene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3582057790392541594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4405598166644600797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcdff1f3b2e97a148a18e4dd92d537cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 774ecd6b1058bd74a96a72ffba3fd33c, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4405598166644600799}
+        m_TargetAssemblyTypeName: LoaderSceneManager, Assembly-CSharp
+        m_MethodName: LoadLevel1_3Scene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8978230054909498010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4405598166644600797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcdff1f3b2e97a148a18e4dd92d537cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: d3aeab01dbf586540b96cfc5f0fb4594, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4405598166644600799}
+        m_TargetAssemblyTypeName: LoaderSceneManager, Assembly-CSharp
+        m_MethodName: LoadBattle1_2Scene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1298316112704652177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4405598166644600797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcdff1f3b2e97a148a18e4dd92d537cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: b8f16ea5aeb4bd741bd63fa8b97b0923, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4405598166644600799}
+        m_TargetAssemblyTypeName: LoaderSceneManager, Assembly-CSharp
+        m_MethodName: LoadBattle1_3Scene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

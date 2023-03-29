@@ -49,6 +49,8 @@ public class DataManagment : MonoBehaviour
             playerData.playerPosition = new Vector3(0f, 0f, 0f);
             playerData.counterEnemies = 0;
             playerData.energyPoints = 100;
+            playerData.isContinue = false;
+            playerData.isReturn = false;
             drawUIEvent.Raise();
         }
         else {
@@ -144,6 +146,17 @@ public class DataManagment : MonoBehaviour
             playerData.energyPoints = 100;
         }
         drawUIEvent.Raise();
+    }
+
+    public void setReturn() {
+        playerData.isReturn = true;
+        playerData.isContinue = false;
+    }
+
+    public void setContinue()
+    {
+        playerData.isReturn = false;
+        playerData.isContinue = true;
     }
 
 

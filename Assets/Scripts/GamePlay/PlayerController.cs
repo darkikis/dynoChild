@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     public GameEvent respawnEvent;
     public GameEvent drawUIEvent;
     public Transform respawn;
+    public Transform respawnReturn;
     public PlayerData playerData;
     public GameEvent discountEnergyEvent;
     public GameEvent pauseEvent;
@@ -50,7 +51,10 @@ public class PlayerController : MonoBehaviour
         if (!playerData.newGame && !playerData.isBattle){
             this.transform.position = playerData.playerPosition;
         }
-        else {
+        else if (playerData.isReturn)
+        {
+            this.RespawnReturnPlayer();
+        } else {
             respawnEvent.Raise();
         }
         canPunch = playerData.canPunch;
@@ -257,6 +261,11 @@ public class PlayerController : MonoBehaviour
 
     public void RespawnPlayer() {
         this.transform.position = respawn.position;
+    }
+
+    public void RespawnReturnPlayer()
+    {
+        this.transform.position = respawnReturn.position;
     }
 
     public bool getCanPunch() {

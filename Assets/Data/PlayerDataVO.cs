@@ -14,4 +14,6 @@ public class PlayerDataVO
     public bool newGame;
     public int energyPoints;
     public bool canPunch;
+    public bool isReturn;
+    public bool isContinue;
 }

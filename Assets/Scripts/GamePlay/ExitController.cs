@@ -11,7 +11,9 @@ public class ExitController : MonoBehaviour
 
         if (other.transform.CompareTag("Player"))
         {
-            showExitPanelEvent.Raise();
+
+            if (other.GetType() == typeof(CapsuleCollider))
+                showExitPanelEvent.Raise();
 
         }
 

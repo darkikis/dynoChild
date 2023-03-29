@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     public GameObject pausePanel;
     public GameObject exitPanel;
     public GameObject continueExpPanel;
+    public GameObject returnExpPanel;
 
     public TextMeshProUGUI lifesText;
     public TextMeshProUGUI energyText;
@@ -38,6 +39,11 @@ public class UIManager : MonoBehaviour
         if (continueExpPanel != null)
         {
             continueExpPanel.SetActive(false);
+        }
+
+        if (returnExpPanel != null)
+        {
+            returnExpPanel.SetActive(false);
         }
 
     }
@@ -90,6 +96,15 @@ public class UIManager : MonoBehaviour
         {
             CleanPanel();
             this.continueExpPanel.SetActive(true);
+        }
+    }
+
+    public void ShowReturnExpPanel()
+    {
+        if (this.returnExpPanel != null)
+        {
+            CleanPanel();
+            this.returnExpPanel.SetActive(true);
         }
     }
 }

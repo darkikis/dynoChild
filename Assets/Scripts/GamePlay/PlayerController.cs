@@ -48,12 +48,12 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        if (!playerData.newGame && !playerData.isBattle){
+        if (!playerData.newGame && !playerData.isBattle && !playerData.isReturn && !playerData.isContinue) {
             this.transform.position = playerData.playerPosition;
-        }
-        else if (playerData.isReturn)
-        {
+        } else if (playerData.isReturn){
             this.RespawnReturnPlayer();
+        } else if (playerData.isContinue) {
+            this.RespawnPlayer();
         } else {
             respawnEvent.Raise();
         }

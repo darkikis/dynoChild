@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5208005027854767737}
   - component: {fileID: 3895030581589749784}
   - component: {fileID: -365150765142230356}
-  - component: {fileID: 4680713631179041823}
+  - component: {fileID: 4405344803654072796}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -204,7 +204,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4680713631179041823
+--- !u!114 &4405344803654072796
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

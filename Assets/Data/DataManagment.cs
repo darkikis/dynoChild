@@ -37,6 +37,9 @@ public class DataManagment : MonoBehaviour
         {
             playerData.isBattle = false;
         }
+        else {
+            playerData.isBattle = true;
+        }
 
         Debug.Log("----------------------------------------------Awake");
         if (playerData.newGame)
@@ -56,19 +59,23 @@ public class DataManagment : MonoBehaviour
         else {
             Debug.Log("----------------------------------------------else");
             if (!playerData.isBattle) {
-                if (playerData.playerPosition != null
-                && playerData.playerPosition.x != 0
-                && playerData.playerPosition.y != 0
-                && playerData.playerPosition.z != 0)
-                {
 
+                if (!playerData.isContinue && !playerData.isReturn) { 
+                
                     Debug.Log("----------------------------------------------else if");
-                    if (this.playerTransform != null)
-                    {
+                    if (playerData.playerPosition != null
+                    && playerData.playerPosition.x != 0
+                    && playerData.playerPosition.y != 0
+                    && playerData.playerPosition.z != 0){
+
                         Debug.Log("----------------------------------------------else if if");
-                        this.playerTransform.position = playerData.playerPosition;
+                        if (this.playerTransform != null)
+                        {
+                            Debug.Log("----------------------------------------------else if if if");
+                            this.playerTransform.position = playerData.playerPosition;
+                        }
+                        drawUIEvent.Raise();
                     }
-                    drawUIEvent.Raise();
                 }
             }
             
@@ -236,8 +243,11 @@ public class DataManagment : MonoBehaviour
 
         }
         playerData.isBattle = false;
+        playerData.isReturn = false;
+        playerData.isContinue = false;
 
         if (SceneManager.GetActiveScene().name.ToUpper().Contains("BATTLE")) {
+            playerData.isBattle = true;
             SceneManager.LoadScene(playerData.sceneName, LoadSceneMode.Single);
         }
             

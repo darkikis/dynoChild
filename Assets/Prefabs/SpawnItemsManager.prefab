@@ -81,7 +81,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   itemsElements:
-  - {fileID: 697281460138800662, guid: ca078b837a5315d4f88b230cd7b55da4, type: 3}
+  - {fileID: 3421231606130596519, guid: 264d907be629a0c4e801606f3a94d946, type: 3}
   startSpawnTime: 2
   spawnTime: 5
   spawPointLength: 2

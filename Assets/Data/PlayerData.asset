@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f9435fef1372184bbd14fa830cd1b83, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  lifes: 7
-  itmes: 26
+  lifes: 13
+  itmes: 31
   currentLevel: 1
-  lifePoints: 100
+  lifePoints: 96
   sceneName: Level1-1
   counterEnemies: 0
   counterItems: 0
-  playerPosition: {x: 0, y: 0, z: 0}
+  playerPosition: {x: -3.0408103, y: 4.4847217, z: 8.511912}
   newGame: 0
-  isBattle: 0
-  energyPoints: 93
-  canPunch: 0
+  isBattle: 1
+  energyPoints: 100
+  canPunch: 1
   isReturn: 0
-  isContinue: 1
+  isContinue: 0

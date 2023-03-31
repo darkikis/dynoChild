@@ -65,8 +65,8 @@ public class UIManager : MonoBehaviour
         //Debug.Log("DrawPlayerStats()");
         //Debug.Log(playerData.lifes);
         lifesText.text = "x" + playerData.lifes.ToString();
-        currentLevel.text = "W-" + playerData.currentLevel;
-        itemsText.text = playerData.itmes.ToString();
+        //currentLevel.text = "W-" + playerData.currentLevel;
+        itemsText.text = "x" + playerData.itmes.ToString();
         energyText.text = playerData.energyPoints.ToString();
         sliderLifePoints.value = playerData.lifePoints;
         sliderEnergyPoints.value = playerData.energyPoints;

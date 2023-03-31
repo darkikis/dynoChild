@@ -264,6 +264,26 @@ public class DataManagment : MonoBehaviour
         playerDatToLoad.newGame = playerVO.newGame;
         playerDatToLoad.energyPoints = playerVO.energyPoints;
         playerDatToLoad.counterEnemies = playerVO.counterEnemies;
+
+    }
+
+    public void populationVOGameLoad(PlayerData playerDatToLoad, PlayerDataVO playerVO)
+    {
+        playerDatToLoad.lifes = playerVO.lifes;
+        playerDatToLoad.itmes = playerVO.itmes;
+        playerDatToLoad.currentLevel = playerVO.currentLevel;
+        playerDatToLoad.lifePoints = playerVO.lifePoints;
+        playerDatToLoad.sceneName = playerVO.sceneName;
+        playerDatToLoad.counterEnemies = playerVO.counterEnemies;
+        playerDatToLoad.counterItems = playerVO.counterItems;
+        playerDatToLoad.playerPosition = playerVO.playerPosition;
+        playerDatToLoad.newGame = playerVO.newGame;
+        playerDatToLoad.isBattle = playerVO.isBattle;
+        playerDatToLoad.energyPoints = playerVO.energyPoints;
+        playerDatToLoad.canPunch = playerVO.canPunch;
+        playerDatToLoad.isReturn = playerVO.isReturn;
+        playerDatToLoad.isContinue = playerVO.isContinue;
+
     }
 
 
@@ -313,6 +333,76 @@ public class DataManagment : MonoBehaviour
 
 
        
+    }
+
+
+    public void SaveData()
+    {
+
+
+        if (playerData == null)
+        {
+
+
+            playerData = new PlayerData();
+            playerData.currentLevel = 1;
+            playerData.lifePoints = 100;
+            playerData.lifes = 10;
+            playerData.sceneName = LoadSceneNames.LEVEL1_1_SCENE;
+            playerData.newGame = true;
+            playerData.isBattle = false;
+            playerData.energyPoints = 100;
+            playerData.counterEnemies = 0;
+            playerData.isBattle = false;
+            playerData.isContinue = false;
+            playerData.isReturn = false;
+            playerData.sceneName = LoadSceneNames.LEVEL1_1_SCENE;
+
+        }
+        
+        playerData.playerPosition = playerTransform.position;
+        sw = new StreamWriter(Application.persistentDataPath + "/" + fileName, false);
+
+        string objString = JsonUtility.ToJson(playerData);
+        
+        sw.WriteLine(objString);
+        sw.Close();
+    }
+
+
+    public void LoadData()
+    {
+        Debug.Log("LoadData...");
+        Debug.Log(Application.persistentDataPath);
+
+        if (File.Exists(Application.persistentDataPath + "/" + fileName))
+        {
+            //Debug.Log("File with data");
+            sr = new StreamReader(Application.persistentDataPath + "/" + fileName);
+            string objString = sr.ReadToEnd();
+            //Debug.Log(objString);
+            PlayerDataVO playerVO = JsonUtility.FromJson<PlayerDataVO>(objString);
+            if (playerVO != null)
+            {
+                populationVOGameLoad(playerData, playerVO);
+            }
+
+
+            sr.Close();
+        }
+
+        if (playerData.sceneName != null)
+        {
+
+            SceneManager.LoadScene(playerData.sceneName, LoadSceneMode.Single);
+            playerData.newGame = false;
+        }
+        else {
+            SceneManager.LoadScene(LoadSceneNames.LEVEL1_1_SCENE, LoadSceneMode.Single);
+        }
+
+
+
     }
 
 }

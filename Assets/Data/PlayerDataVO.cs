@@ -16,4 +16,5 @@ public class PlayerDataVO
     public bool canPunch;
     public bool isReturn;
     public bool isContinue;
+    public bool isBattle;
 }

@@ -359,7 +359,13 @@ public class DataManagment : MonoBehaviour
             playerData.sceneName = LoadSceneNames.LEVEL1_1_SCENE;
 
         }
-        
+
+        if (SceneManager.GetActiveScene().name.ToUpper().Contains("BATTLE"))
+        {
+            playerData.sceneName = SceneManager.GetActiveScene().name;
+            playerData.playerPosition = playerTransform.position;
+        }
+
         playerData.playerPosition = playerTransform.position;
         sw = new StreamWriter(Application.persistentDataPath + "/" + fileName, false);
 
